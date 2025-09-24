@@ -10,77 +10,51 @@ import {
 
 const StatisticsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [counters, setCounters] = useState({
-    college: 0,
-    countries: 0,
-    classSize: 0,
-    credit: 0,
-    community: 0,
-    graduation: 0
-  });
+  const [counters, setCounters] = useState<number[]>(new Array(6).fill(0));
   
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const statistics = [
     {
-      key: 'college',
       value: 85,
-      suffix: '%',
       title: 'College Acceptance Rate',
       description: 'Our graduates continue their education',
       icon: GraduationCap,
-      color: 'text-gold',
-      delay: '0s'
+      isPercentage: true,
     },
     {
-      key: 'countries',
       value: 20,
-      suffix: '+',
       title: 'Countries Represented',
       description: 'Diverse global community',
       icon: Globe,
-      color: 'text-primary',
-      delay: '0.2s'
+      hasPlus: true,
     },
     {
-      key: 'classSize',
       value: 18,
-      suffix: '',
       title: 'Average Class Size',
       description: 'Personalized attention for every student',
       icon: Users,
-      color: 'text-primary',
-      delay: '0.4s'
     },
     {
-      key: 'credit',
       value: 95,
-      suffix: '%',
       title: 'Credit Accumulation',
       description: 'Students on track for graduation',
       icon: Award,
-      color: 'text-gold',
-      delay: '0.6s'
+      isPercentage: true,
     },
     {
-      key: 'community',
       value: 100,
-      suffix: '%',
       title: 'Diverse Community',
       description: 'Celebrating all backgrounds',
       icon: Heart,
-      color: 'text-primary',
-      delay: '0.8s'
+      isPercentage: true,
     },
     {
-      key: 'graduation',
-      value: 2.5,
-      suffix: 'x',
+      value: 25,
       title: 'Higher Graduation Rate',
       description: 'Above district average',
       icon: TrendingUp,
-      color: 'text-gold',
-      delay: '1s'
+      isDecimal: true,
     }
   ];
 
@@ -117,17 +91,21 @@ const StatisticsSection = () => {
             clearInterval(timer);
           }
           
-          setCounters(prev => ({
-            ...prev,
-            [stat.key]: Math.floor(current)
-          }));
+          setCounters(prev => {
+            const newCounters = [...prev];
+            newCounters[index] = Math.floor(current);
+            return newCounters;
+          });
         }, duration / steps);
       }, index * 200);
     });
   };
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-stats">
+    <section 
+      ref={sectionRef}
+      className="py-20 bg-gradient-stats text-background"
+    >
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16 animate-slide-up">
@@ -142,76 +120,51 @@ const StatisticsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {statistics.map((stat, index) => {
             const IconComponent = stat.icon;
-            const displayValue = stat.key === 'graduation' ? 
-              (counters[stat.key] / 10).toFixed(1) : 
-              counters[stat.key];
-
+            const animatedValue = counters[index] || 0;
+            
             return (
               <div
                 key={stat.title}
-                className="card-elegant text-center group animate-slide-up"
-                style={{ animationDelay: stat.delay }}
+                className="bg-background/10 backdrop-blur-sm rounded-2xl p-8 border border-background/20 hover:bg-background/20 transition-all duration-300 group"
+                style={{
+                  animationDelay: `${index * 0.1}s`,
+                }}
               >
-                <div className="p-8">
-                  {/* Icon */}
-                  <div className="w-20 h-20 mx-auto mb-6 bg-secondary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent className={`w-10 h-10 ${stat.color}`} />
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-background/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <IconComponent className="w-8 h-8 text-background" />
+                  </div>
+                  
+                  <div className="mb-4">
+                    <div className={`text-5xl font-bold text-background mb-2 ${isVisible ? 'counter-animate' : ''}`}>
+                      {stat.isPercentage ? `${animatedValue}%` : 
+                       stat.hasPlus ? `${animatedValue}+` : 
+                       stat.isDecimal ? `${(animatedValue / 10).toFixed(1)}x` : 
+                       animatedValue}
+                    </div>
+                    <h3 className="text-xl font-bold text-background mb-2">
+                      {stat.title}
+                    </h3>
+                    <p className="text-background/80 leading-relaxed">
+                      {stat.description}
+                    </p>
                   </div>
 
-                  {/* Animated Number */}
-                  <div className={`text-5xl font-bold mb-2 ${stat.color} group-hover:scale-105 transition-transform duration-300`}>
-                    {displayValue}{stat.suffix}
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="heading-card mb-3 group-hover:text-primary-hover transition-colors duration-300">
-                    {stat.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                    {stat.description}
-                  </p>
-
-                  {/* Progress Bar for Percentage Stats */}
-                  {stat.suffix === '%' && (
-                    <div className="mt-6">
-                      <div className="w-full bg-secondary rounded-full h-2">
-                        <div 
-                          className={`h-2 rounded-full transition-all duration-2000 ease-out ${
-                            stat.color === 'text-gold' ? 'bg-gold' : 'bg-primary'
-                          }`}
-                          style={{ 
-                            width: isVisible ? `${stat.value}%` : '0%',
-                            transitionDelay: stat.delay
-                          }}
-                        ></div>
-                      </div>
+                  {stat.isPercentage && (
+                    <div className="w-full bg-background/20 rounded-full h-2 mb-4">
+                      <div 
+                        className="bg-background h-2 rounded-full transition-all duration-1000 ease-out"
+                        style={{ 
+                          width: isVisible ? `${stat.value}%` : '0%',
+                          transitionDelay: `${index * 0.2}s`
+                        }}
+                      />
                     </div>
                   )}
                 </div>
               </div>
             );
           })}
-        </div>
-
-        {/* Bottom Call to Action */}
-        <div className="mt-16 text-center">
-          <div className="p-8 bg-primary rounded-lg text-primary-foreground">
-            <h3 className="text-2xl font-bold mb-4">Ready to Join Our Success Story?</h3>
-            <p className="text-lg mb-6 opacity-90 max-w-2xl mx-auto">
-              These numbers represent real students achieving their dreams. 
-              Become part of our community and see what you can achieve at Bronx Bridges High School.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gold text-primary font-bold px-8 py-3 rounded-lg hover:bg-gold-hover transition-colors duration-300">
-                Apply Today
-              </button>
-              <button className="border-2 border-primary-foreground text-primary-foreground bg-transparent font-bold px-8 py-3 rounded-lg hover:bg-primary-foreground hover:text-primary transition-all duration-300">
-                Learn More
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </section>

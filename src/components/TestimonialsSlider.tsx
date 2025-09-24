@@ -63,111 +63,91 @@ const TestimonialsSlider = () => {
   };
 
   return (
-    <section className="py-20 bg-secondary/30">
+    <section className="py-20 bg-muted/30">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-slide-up">
-          <h2 className="heading-section">Our Community Says</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Hear from the students, parents, and educators who make Bronx Bridges High School 
-            a truly special place to learn and grow.
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-foreground mb-4">
+            Our Community Says
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Hear from the students, parents, and educators who make Bronx Bridges High School a truly special place to learn and grow.
           </p>
         </div>
 
-        {/* Testimonials Slider */}
-        <div 
-          className="relative max-w-5xl mx-auto"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          {/* Main Testimonial Card */}
-          <div className="card-elegant p-8 md:p-12 text-center min-h-[400px] flex flex-col justify-center">
-            <div className="mb-8">
-              <Quote className="w-12 h-12 text-gold mx-auto mb-6" />
-              <blockquote className="text-xl md:text-2xl text-foreground leading-relaxed mb-8 font-medium">
+        {/* Main Testimonial Card */}
+        <div className="max-w-4xl mx-auto mb-12">
+          <div className="bg-card rounded-3xl p-8 md:p-12 shadow-card border border-card-border">
+            <div className="text-center">
+              {/* Quote Icon */}
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8">
+                <svg className="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                </svg>
+              </div>
+
+              {/* Testimonial Text */}
+              <blockquote className="text-xl md:text-2xl font-medium text-card-foreground leading-relaxed mb-8">
                 "{testimonials[currentSlide].quote}"
               </blockquote>
-            </div>
 
-            {/* Author Info */}
-            <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-              <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-primary">
-                <img
-                  src={testimonials[currentSlide].image}
-                  alt={testimonials[currentSlide].name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="text-center md:text-left">
-                <div className="font-bold text-xl text-primary mb-1">
-                  {testimonials[currentSlide].name}
+              {/* Author Info */}
+              <div className="flex flex-col items-center">
+                <div className="relative mb-4">
+                  <img
+                    src={testimonials[currentSlide].image}
+                    alt={testimonials[currentSlide].name}
+                    className="w-20 h-20 rounded-full object-cover border-4 border-primary/20"
+                  />
                 </div>
-                <div className="text-muted-foreground mb-2">
-                  {testimonials[currentSlide].role}
-                </div>
-                <div className="text-gold font-semibold text-sm">
-                  {testimonials[currentSlide].highlight}
+                <div className="text-center">
+                  <h4 className="text-lg font-bold text-card-foreground mb-1">
+                    {testimonials[currentSlide].name}
+                  </h4>
+                  <p className="text-muted-foreground mb-2">
+                    {testimonials[currentSlide].role}
+                  </p>
+                  <p className="text-sm text-primary font-medium">
+                    {testimonials[currentSlide].highlight}
+                  </p>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Navigation Arrows */}
+        {/* Navigation */}
+        <div className="flex items-center justify-center space-x-8">
           <button
             onClick={goToPrevious}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-card border-2 border-primary rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-hover"
+            className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
             aria-label="Previous testimonial"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-6 h-6 text-primary" />
           </button>
 
-          <button
-            onClick={goToNext}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-card border-2 border-primary rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-hover"
-            aria-label="Next testimonial"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-
-          {/* Slide Indicators */}
-          <div className="flex justify-center space-x-3 mt-8">
+          <div className="flex space-x-3">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentSlide
-                    ? 'bg-primary scale-125'
-                    : 'bg-muted hover:bg-muted-foreground'
+                className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                  index === currentSlide 
+                    ? 'bg-primary w-8' 
+                    : 'bg-primary/30 hover:bg-primary/50'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}
           </div>
-        </div>
 
-        {/* Auto-play indicator */}
-        <div className="text-center mt-8">
-          <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-            <div className={`w-2 h-2 rounded-full ${isAutoPlaying ? 'bg-gold animate-pulse' : 'bg-muted'}`}></div>
-            <span>{isAutoPlaying ? 'Auto-playing' : 'Paused'} • Hover to pause</span>
-          </div>
-        </div>
-
-        {/* Additional Stats */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div className="p-6">
-            <div className="text-3xl font-bold text-gold mb-2">4.8/5</div>
-            <div className="text-muted-foreground">Average Parent Rating</div>
-          </div>
-          <div className="p-6">
-            <div className="text-3xl font-bold text-gold mb-2">98%</div>
-            <div className="text-muted-foreground">Student Satisfaction</div>
-          </div>
-          <div className="p-6">
-            <div className="text-3xl font-bold text-gold mb-2">92%</div>
-            <div className="text-muted-foreground">Would Recommend</div>
-          </div>
+          <button
+            onClick={goToNext}
+            className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="w-6 h-6 text-primary" />
+          </button>
         </div>
       </div>
     </section>
