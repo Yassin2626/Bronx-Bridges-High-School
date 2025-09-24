@@ -75,12 +75,12 @@ const QuickAccessResources = () => {
               >
                 <a
                   href={resource.href}
-                  className="block bg-card border border-card-border rounded-2xl p-8 transition-all duration-300 hover:shadow-hover hover:border-primary/20 hover:-translate-y-2"
+                  className="block bg-card border border-card-border rounded-2xl p-8 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/40 hover:scale-105 hover:rotate-1 hover:bg-gradient-to-br hover:from-card hover:to-primary/5"
                 >
                   <div className="flex items-start space-x-6">
                     <div className="flex-shrink-0">
-                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                        <IconComponent className="w-8 h-8 text-primary" />
+                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-primary-hover group-hover:shadow-lg group-hover:shadow-primary/30 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-12">
+                        <IconComponent className="w-8 h-8 text-primary group-hover:text-white transition-all duration-300" />
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">

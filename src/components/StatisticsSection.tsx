@@ -104,13 +104,13 @@ const StatisticsSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-20 bg-gradient-stats text-background"
+      className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
     >
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16 animate-slide-up">
-          <h2 className="heading-section">Excellence in Numbers</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold text-white mb-4">Excellence in Numbers</h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Our commitment to academic excellence and student success is reflected in these achievements. 
             See how Bronx Bridges High School makes a difference in our students' lives.
           </p>
@@ -125,38 +125,38 @@ const StatisticsSection = () => {
             return (
               <div
                 key={stat.title}
-                className="bg-background/10 backdrop-blur-sm rounded-2xl p-8 border border-background/20 hover:bg-background/20 transition-all duration-300 group"
+                className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 hover:border-gold/40 hover:shadow-2xl hover:shadow-gold/20 transition-all duration-500 group hover:scale-105"
                 style={{
                   animationDelay: `${index * 0.1}s`,
                 }}
               >
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-background/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent className="w-8 h-8 text-background" />
+                  <div className="w-18 h-18 bg-gradient-to-br from-gold to-amber-400 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg shadow-gold/30">
+                    <IconComponent className="w-9 h-9 text-white drop-shadow-sm" />
                   </div>
                   
                   <div className="mb-4">
-                    <div className={`text-5xl font-bold text-background mb-2 ${isVisible ? 'counter-animate' : ''}`}>
+                    <div className={`text-6xl font-bold bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent mb-3 ${isVisible ? 'animate-pulse' : ''}`}>
                       {stat.isPercentage ? `${animatedValue}%` : 
                        stat.hasPlus ? `${animatedValue}+` : 
                        stat.isDecimal ? `${(animatedValue / 10).toFixed(1)}x` : 
                        animatedValue}
                     </div>
-                    <h3 className="text-xl font-bold text-background mb-2">
+                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-gold transition-colors duration-300">
                       {stat.title}
                     </h3>
-                    <p className="text-background/80 leading-relaxed">
+                    <p className="text-gray-300 leading-relaxed text-sm">
                       {stat.description}
                     </p>
                   </div>
 
                   {stat.isPercentage && (
-                    <div className="w-full bg-background/20 rounded-full h-2 mb-4">
+                    <div className="w-full bg-white/20 rounded-full h-3 mb-4 overflow-hidden">
                       <div 
-                        className="bg-background h-2 rounded-full transition-all duration-1000 ease-out"
+                        className="bg-gradient-to-r from-gold to-amber-400 h-3 rounded-full transition-all duration-2000 ease-out shadow-sm"
                         style={{ 
                           width: isVisible ? `${stat.value}%` : '0%',
-                          transitionDelay: `${index * 0.2}s`
+                          transitionDelay: `${index * 0.3}s`
                         }}
                       />
                     </div>

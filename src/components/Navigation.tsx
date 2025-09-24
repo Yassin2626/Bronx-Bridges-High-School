@@ -112,7 +112,7 @@ const Navigation = () => {
                         <a
                           key={dropdownItem.name}
                           href={dropdownItem.href}
-                          className="block py-2 px-3 text-sm font-medium text-primary hover:text-primary-hover hover:bg-secondary/50 rounded transition-all duration-200"
+                          className="block py-3 px-4 text-sm font-medium text-primary hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-primary-hover rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:translate-x-1"
                         >
                           {dropdownItem.name}
                         </a>
