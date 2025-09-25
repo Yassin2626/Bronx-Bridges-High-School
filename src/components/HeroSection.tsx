@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import schoolLogo from '@/assets/school-logo.png';
+import logo from '@/assets/logo.png';
 
 const HeroSection = () => {
   return (
@@ -15,16 +15,18 @@ const HeroSection = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Left Side - School Logo */}
           <div className="flex-1 flex justify-center lg:justify-start">
-            <div className="relative">
+            <div className="relative group">
               <img
-                src={schoolLogo}
+                src={logo}
                 alt="Bronx Bridges High School Logo"
-                className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain animate-pulse-custom"
+                className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain animate-pulse-custom hover:scale-110 transition-all duration-700 hover:drop-shadow-2xl hover:brightness-110"
               />
-              {/* Floating elements around logo */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/10 rounded-full animate-float"></div>
-              <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-primary/5 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
-              <div className="absolute top-1/2 -left-8 w-6 h-6 bg-primary/15 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
+              {/* Enhanced floating elements with better animations */}
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-gold/20 rounded-full animate-float group-hover:scale-125 transition-all duration-500"></div>
+              <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-gold/15 rounded-full animate-float group-hover:scale-110 transition-all duration-700" style={{ animationDelay: '2s' }}></div>
+              <div className="absolute top-1/2 -left-8 w-6 h-6 bg-gold/25 rounded-full animate-float group-hover:scale-125 transition-all duration-600" style={{ animationDelay: '1s' }}></div>
+              {/* Glow effect on hover */}
+              <div className="absolute inset-0 bg-gold/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
             </div>
           </div>
 

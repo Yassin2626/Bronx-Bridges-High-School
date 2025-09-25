@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import logo from '@/assets/logo.png';
+import headerName from '@/assets/header_name.png';
 
 const Navigation = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -71,16 +73,22 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50">
-      <div className="nav-glass">
-        <div className="container mx-auto px-8">
+    <nav className="fixed top-2 left-0 right-0 z-50 flex justify-center">
+      <div className="nav-glass max-w-5xl mx-auto">
+        <div className="px-8">
           <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">BB</span>
-            </div>
-            <span className="font-bold text-lg text-primary">Bronx Bridges</span>
+            <img 
+              src={logo} 
+              alt="Bronx Bridges Logo" 
+              className="w-10 h-10 object-contain hover:scale-110 transition-transform duration-300"
+            />
+            <img 
+              src={headerName} 
+              alt="Bronx Bridges High School" 
+              className="h-6 object-contain"
+            />
           </div>
 
           {/* Navigation Items */}
