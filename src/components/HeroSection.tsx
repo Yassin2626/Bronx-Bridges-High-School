@@ -19,14 +19,8 @@ const HeroSection = () => {
               <img
                 src={logo}
                 alt="Bronx Bridges High School Logo"
-                className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain animate-pulse-custom hover:scale-110 transition-all duration-700 hover:drop-shadow-2xl hover:brightness-110"
+                className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain animate-slow-scale hover:scale-110 transition-all duration-700 hover:drop-shadow-2xl"
               />
-              {/* Enhanced floating elements with better animations */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-gold/20 rounded-full animate-float group-hover:scale-125 transition-all duration-500"></div>
-              <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-gold/15 rounded-full animate-float group-hover:scale-110 transition-all duration-700" style={{ animationDelay: '2s' }}></div>
-              <div className="absolute top-1/2 -left-8 w-6 h-6 bg-gold/25 rounded-full animate-float group-hover:scale-125 transition-all duration-600" style={{ animationDelay: '1s' }}></div>
-              {/* Glow effect on hover */}
-              <div className="absolute inset-0 bg-gold/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
             </div>
           </div>
 

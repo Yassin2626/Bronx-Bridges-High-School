@@ -73,12 +73,12 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-2 left-0 right-0 z-50 flex justify-center">
-      <div className="nav-glass max-w-5xl mx-auto">
+    <nav className="fixed top-6 left-0 right-0 z-50 flex justify-center">
+      <div className="nav-glass w-[85%] max-w-6xl mx-auto">
         <div className="px-8">
           <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-4 flex-shrink-0">
             <img 
               src={logo} 
               alt="Bronx Bridges Logo" 
@@ -87,12 +87,12 @@ const Navigation = () => {
             <img 
               src={headerName} 
               alt="Bronx Bridges High School" 
-              className="h-6 object-contain"
+              className="h-5 object-contain"
             />
           </div>
 
           {/* Navigation Items */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6 flex-shrink-0">
             {navigationItems.map((item) => (
               <div
                 key={item.name}

@@ -16,43 +16,43 @@ const StatisticsSection = () => {
 
   const statistics = [
     {
-      value: 85,
-      title: 'College Acceptance Rate',
-      description: 'Our graduates continue their education',
+      value: 95,
+      title: 'College Acceptance Success',
+      description: 'Graduates receive multiple college acceptances',
       icon: GraduationCap,
       isPercentage: true,
     },
     {
       value: 20,
       title: 'Countries Represented',
-      description: 'Diverse global community',
+      description: 'Rich international diversity in our community',
       icon: Globe,
       hasPlus: true,
     },
     {
-      value: 18,
-      title: 'Average Class Size',
-      description: 'Personalized attention for every student',
+      value: 20,
+      title: 'Students Per Class',
+      description: 'Personalized attention and focused learning',
       icon: Users,
     },
     {
-      value: 95,
-      title: 'Credit Accumulation',
-      description: 'Students on track for graduation',
+      value: 90,
+      title: 'Core Subject Success',
+      description: 'Credit accumulation in essential areas',
       icon: Award,
       isPercentage: true,
     },
     {
-      value: 100,
-      title: 'Diverse Community',
-      description: 'Celebrating all backgrounds',
+      value: 85,
+      title: 'Multilingual Community',
+      description: 'International and bilingual students',
       icon: Heart,
       isPercentage: true,
     },
     {
       value: 25,
-      title: 'Higher Graduation Rate',
-      description: 'Above district average',
+      title: 'Above District Average',
+      description: 'Higher graduation success rate',
       icon: TrendingUp,
       isDecimal: true,
     }
@@ -135,8 +135,8 @@ const StatisticsSection = () => {
                 }}
               >
                 <div className="text-center">
-                  <div className="w-18 h-18 bg-gradient-to-br from-gold to-gold-hover rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-700 shadow-lg shadow-gold/30">
-                    <IconComponent className="w-9 h-9 text-foreground drop-shadow-sm" />
+                  <div className="w-18 h-18 bg-gradient-to-br from-foreground to-muted-foreground rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-700 shadow-lg shadow-foreground/30">
+                    <IconComponent className="w-9 h-9 text-background drop-shadow-sm" />
                   </div>
                   
                   <div className="mb-4">
@@ -154,13 +154,13 @@ const StatisticsSection = () => {
                     </p>
                   </div>
 
-                  {stat.isPercentage && (
+                  {(stat.isPercentage || stat.hasPlus || stat.isDecimal || !stat.isPercentage) && (
                     <div className="w-full bg-muted/20 rounded-full h-3 mb-4 overflow-hidden">
                       <div 
                         className="bg-gradient-to-r from-gold to-gold-hover h-3 rounded-full shadow-sm"
                         style={{ 
-                          width: isVisible ? `${stat.value}%` : '0%',
-                          transition: 'width 2s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                          width: isVisible ? `${stat.isPercentage ? stat.value : stat.hasPlus ? Math.min(stat.value * 4, 100) : stat.isDecimal ? stat.value * 4 : Math.min(stat.value * 5, 100)}%` : '0%',
+                          transition: 'width 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
                           transitionDelay: `${index * 0.3}s`
                         }}
                       />
