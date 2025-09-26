@@ -1,6 +1,7 @@
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
+import HeroTextSection from '@/components/HeroTextSection';
 import QuickAccessResources from '@/components/QuickAccessResources';
 import StatisticsSection from '@/components/StatisticsSection';
 import TestimonialsSlider from '@/components/TestimonialsSlider';
@@ -14,6 +15,9 @@ const Index = () => {
       
       {/* Hero Section */}
       <HeroSection />
+      
+      {/* Hero Text Section */}
+      <HeroTextSection />
       
       {/* Quick Access Resources */}
       <QuickAccessResources />

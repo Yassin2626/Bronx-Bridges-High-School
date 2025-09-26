@@ -188,6 +188,10 @@
     animation: slow-scale 6s ease-in-out infinite;
   }
 
+  .animate-ultra-slow-scale {
+    animation: ultra-slow-scale 24s ease-in-out infinite;
+  }
+
   .animate-slide-up {
     animation: slideUp 0.6s ease-out forwards;
     opacity: 0;
@@ -299,6 +303,15 @@
   }
   50% { 
     transform: scale(1.05); 
+  }
+}
+
+@keyframes ultra-slow-scale {
+  0%, 100% { 
+    transform: scale(1); 
+  }
+  50% { 
+    transform: scale(1.02); 
   }
 }
 

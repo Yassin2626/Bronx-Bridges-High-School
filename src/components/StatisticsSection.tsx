@@ -11,6 +11,7 @@ import {
 const StatisticsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [counters, setCounters] = useState<number[]>(new Array(6).fill(0));
+  const [progress, setProgress] = useState<number[]>(new Array(6).fill(0));
   
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -23,27 +24,27 @@ const StatisticsSection = () => {
       isPercentage: true,
     },
     {
-      value: 20,
+      value: 25,
       title: 'Countries Represented',
       description: 'Rich international diversity in our community',
       icon: Globe,
       hasPlus: true,
     },
     {
-      value: 20,
+      value: 15,
       title: 'Students Per Class',
       description: 'Personalized attention and focused learning',
       icon: Users,
     },
     {
-      value: 90,
+      value: 95,
       title: 'Core Subject Success',
       description: 'Credit accumulation in essential areas',
       icon: Award,
       isPercentage: true,
     },
     {
-      value: 85,
+      value: 90,
       title: 'Multilingual Community',
       description: 'International and bilingual students',
       icon: Heart,
@@ -77,32 +78,39 @@ const StatisticsSection = () => {
   }, [isVisible]);
 
   const animateCounters = () => {
-    statistics.forEach((stat, index) => {
-      setTimeout(() => {
-        const duration = 2500;
-        const steps = 80;
-        const increment = stat.value / steps;
-        let current = 0;
+    const duration = 3500;
+    const steps = 100;
+    let currentStep = 0;
 
-        const timer = setInterval(() => {
-          // Ease-out animation: fast start, medium, slow finish
-          const progress = current / stat.value;
-          const easeOut = 1 - Math.pow(1 - progress, 3);
-          current = stat.value * easeOut;
-          
-          if (current >= stat.value) {
-            current = stat.value;
-            clearInterval(timer);
-          }
-          
-          setCounters(prev => {
-            const newCounters = [...prev];
-            newCounters[index] = Math.floor(current);
-            return newCounters;
-          });
-        }, duration / steps);
-      }, index * 200);
-    });
+    const timer = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / steps;
+      // Ease-out animation: fast start, medium, slow finish
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+
+      setCounters(prev => {
+        const newCounters = [...prev];
+        statistics.forEach((stat, index) => {
+          newCounters[index] = Math.floor(stat.value * easeOut);
+        });
+        return newCounters;
+      });
+
+      setProgress(prev => {
+        const newProgress = [...prev];
+        statistics.forEach((stat, index) => {
+          newProgress[index] = easeOut * 100;
+        });
+        return newProgress;
+      });
+
+      if (currentStep >= steps) {
+        clearInterval(timer);
+        // Ensure final values are exact
+        setCounters(statistics.map(stat => stat.value));
+        setProgress(new Array(6).fill(100));
+      }
+    }, duration / steps);
   };
 
   return (
@@ -125,47 +133,70 @@ const StatisticsSection = () => {
           {statistics.map((stat, index) => {
             const IconComponent = stat.icon;
             const animatedValue = counters[index] || 0;
+            const progressValue = progress[index] || 0;
             
             return (
               <div
                 key={stat.title}
-                className="bg-card backdrop-blur-md rounded-2xl p-8 border border-card-border hover:bg-card/80 hover:border-gold/40 hover:shadow-hover hover:shadow-gold/20 transition-all duration-700 group hover:scale-105"
+                className="bg-gradient-to-br from-black via-gray-900 to-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/10 hover:border-white/30 hover:shadow-2xl hover:shadow-black/50 transition-all duration-700 group hover:scale-105"
                 style={{
                   animationDelay: `${index * 0.1}s`,
                 }}
               >
-                <div className="text-center">
-                  <div className="w-18 h-18 bg-gradient-to-br from-foreground to-muted-foreground rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-700 shadow-lg shadow-foreground/30">
-                    <IconComponent className="w-9 h-9 text-background drop-shadow-sm" />
+                <div className="text-center relative">
+                  {/* Circular Progress Ring */}
+                  <div className="relative w-20 h-20 mx-auto mb-6">
+                    <svg className="w-20 h-20 transform -rotate-90" viewBox="0 0 80 80">
+                      {/* Background circle */}
+                      <circle
+                        cx="40"
+                        cy="40"
+                        r="35"
+                        fill="none"
+                        stroke="rgba(255,255,255,0.1)"
+                        strokeWidth="6"
+                      />
+                      {/* Progress circle */}
+                      <circle
+                        cx="40"
+                        cy="40"
+                        r="35"
+                        fill="none"
+                        stroke="url(#gradient)"
+                        strokeWidth="6"
+                        strokeLinecap="round"
+                        strokeDasharray={220}
+                        strokeDashoffset={220 - (220 * progressValue) / 100}
+                        className="transition-all duration-[3500ms] ease-out"
+                      />
+                      {/* Gradient definition */}
+                      <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#FBBD23" />
+                          <stop offset="100%" stopColor="#F59E0B" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                    {/* Icon in center */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <IconComponent className="w-8 h-8 text-white drop-shadow-sm" />
+                    </div>
                   </div>
                   
                   <div className="mb-4">
-                    <div className={`text-6xl font-bold text-foreground mb-3 transition-all duration-500 ${isVisible ? 'animate-bounce' : ''}`}>
+                    <div className="text-5xl font-bold text-white mb-3 bg-gradient-to-br from-white to-gray-300 bg-clip-text text-transparent drop-shadow-sm">
                       {stat.isPercentage ? `${animatedValue}%` : 
                        stat.hasPlus ? `${animatedValue}+` : 
                        stat.isDecimal ? `${(animatedValue / 10).toFixed(1)}x` : 
                        animatedValue}
                     </div>
-                    <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-gold transition-colors duration-500">
+                    <h3 className="text-lg font-bold text-white mb-3 bg-gradient-to-br from-white to-gray-300 bg-clip-text text-transparent">
                       {stat.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm">
+                    <p className="text-white/80 leading-relaxed text-sm bg-gradient-to-br from-white/80 to-gray-300/80 bg-clip-text text-transparent">
                       {stat.description}
                     </p>
                   </div>
-
-                  {(stat.isPercentage || stat.hasPlus || stat.isDecimal || !stat.isPercentage) && (
-                    <div className="w-full bg-muted/20 rounded-full h-3 mb-4 overflow-hidden">
-                      <div 
-                        className="bg-gradient-to-r from-gold to-gold-hover h-3 rounded-full shadow-sm"
-                        style={{ 
-                          width: isVisible ? `${stat.isPercentage ? stat.value : stat.hasPlus ? Math.min(stat.value * 4, 100) : stat.isDecimal ? stat.value * 4 : Math.min(stat.value * 5, 100)}%` : '0%',
-                          transition: 'width 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                          transitionDelay: `${index * 0.3}s`
-                        }}
-                      />
-                    </div>
-                  )}
                 </div>
               </div>
             );
