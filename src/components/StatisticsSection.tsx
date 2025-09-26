@@ -138,7 +138,7 @@ const StatisticsSection = () => {
             return (
               <div
                 key={stat.title}
-                className="bg-gradient-to-br from-black via-gray-900 to-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/10 hover:border-white/30 hover:shadow-2xl hover:shadow-black/50 transition-all duration-700 group hover:scale-105"
+                className="bg-gradient-to-br from-black via-gray-800 to-gray-700 backdrop-blur-md rounded-2xl p-8 border-4 border-black hover:border-gray-900 hover:shadow-2xl hover:shadow-black/50 transition-all duration-700 group hover:scale-105"
                 style={{
                   animationDelay: `${index * 0.1}s`,
                 }}
