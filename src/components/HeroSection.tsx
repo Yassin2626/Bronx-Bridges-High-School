@@ -13,9 +13,9 @@ const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-6 py-20">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           {/* Left Side - Logo */}
-          <div className="flex-1 flex justify-center lg:justify-start">
+          <div className="flex justify-center lg:justify-start">
             <img
               src={logo}
               alt="Bronx Bridges High School Logo"
@@ -24,7 +24,7 @@ const HeroSection = () => {
           </div>
 
           {/* Right Side - Photo Slider */}
-          <div className="flex-1">
+          <div className="flex-1 max-w-4xl">
             <HeroSlider />
           </div>
         </div>
