@@ -43,7 +43,7 @@ const HeroSlider = () => {
   };
 
   return (
-    <div className="relative w-full h-80 md:h-96 lg:h-[28rem] rounded-2xl overflow-hidden bg-card border border-border group">
+    <div className="relative w-full h-96 md:h-[32rem] lg:h-[40rem] rounded-2xl overflow-hidden bg-card border border-border group">
       {/* Image Container */}
       <div className="relative w-full h-full">
         {photos.map((photo, index) => (
@@ -64,18 +64,18 @@ const HeroSlider = () => {
       {/* Navigation Arrows */}
       <button
         onClick={goToPrev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/70 hover:bg-black/90 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 z-10"
+        className="absolute left-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-foreground/80 hover:bg-foreground text-background rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 z-10 shadow-lg"
         aria-label="Previous image"
       >
-        <ChevronLeft className="w-6 h-6" />
+        <ChevronLeft className="w-7 h-7" />
       </button>
 
       <button
         onClick={goToNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/70 hover:bg-black/90 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 z-10"
+        className="absolute right-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-foreground/80 hover:bg-foreground text-background rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 z-10 shadow-lg"
         aria-label="Next image"
       >
-        <ChevronRight className="w-6 h-6" />
+        <ChevronRight className="w-7 h-7" />
       </button>
 
       {/* Dots Indicator */}

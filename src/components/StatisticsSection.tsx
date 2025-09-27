@@ -24,19 +24,6 @@ const StatisticsSection = () => {
       isPercentage: true,
     },
     {
-      value: 25,
-      title: 'Countries Represented',
-      description: 'Rich international diversity in our community',
-      icon: Globe,
-      hasPlus: true,
-    },
-    {
-      value: 15,
-      title: 'Students Per Class',
-      description: 'Personalized attention and focused learning',
-      icon: Users,
-    },
-    {
       value: 95,
       title: 'Core Subject Success',
       description: 'Credit accumulation in essential areas',
@@ -49,6 +36,19 @@ const StatisticsSection = () => {
       description: 'International and bilingual students',
       icon: Heart,
       isPercentage: true,
+    },
+    {
+      value: 25,
+      title: 'Countries Represented',
+      description: 'Rich international diversity in our community',
+      icon: Globe,
+      hasPlus: true,
+    },
+    {
+      value: 15,
+      title: 'Students Per Class',
+      description: 'Personalized attention and focused learning',
+      icon: Users,
     },
     {
       value: 25,
