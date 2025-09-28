@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import logo from '@/assets/logo.png';
 import HeroSlider from './HeroSlider';
 const HeroSection = () => {
-  return <section id="home" className="relative min-h-screen flex items-center bg-gradient-hero overflow-hidden">
+  return <section id="home" className="relative min-h-screen flex flex-col justify-center bg-gradient-hero overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(0,0,0,0.1)_0%,transparent_50%)] animate-pulse-custom"></div>
@@ -13,9 +13,23 @@ const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-6 py-20">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+        {/* Hero Text - Top Center */}
+        <div className="text-center animate-slide-up mb-16">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Building Futures,
+            <br />
+            <span className="text-muted-foreground">Bridging Communities</span>
+          </h1>
+          
+          <p className="text-base md:text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            Where excellence meets opportunity. Join our diverse community dedicated to academic achievement, 
+            personal growth, and preparing students for success in college and beyond.
+          </p>
+        </div>
+
+        <div className="flex flex-col lg:flex-row items-center gap-8">
           {/* Left Side - Logo */}
-          <div className="flex justify-center lg:justify-start">
+          <div className="flex justify-center lg:justify-start lg:w-[30%]">
             <img
               src={logo}
               alt="Bronx Bridges High School Logo"
@@ -23,8 +37,8 @@ const HeroSection = () => {
             />
           </div>
 
-          {/* Right Side - Photo Slider */}
-          <div className="flex-1 max-w-4xl">
+          {/* Right Side - Photo Slider - 70% width */}
+          <div className="lg:w-[70%] w-full">
             <HeroSlider />
           </div>
         </div>

@@ -1,25 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Play } from 'lucide-react';
 
 const HeroTextSection = () => {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
+  const handleVideoPlay = () => {
+    setIsVideoPlaying(true);
+  };
+
   return (
     <section className="py-16 bg-gradient-to-br from-background via-muted/5 to-background">
       <div className="container mx-auto px-6">
-
-        {/* Hero Text - Centered */}
         <div className="text-center animate-slide-up mb-12">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Building Futures,
-            <br />
-            <span className="text-muted-foreground">Bridging Communities</span>
-          </h1>
-          
-          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-16">
-            Where excellence meets opportunity. Join our diverse community dedicated to academic achievement, 
-            personal growth, and preparing students for success in college and beyond.
-          </p>
-
           {/* Video Section */}
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Our Students Making a Difference
@@ -31,16 +25,29 @@ const HeroTextSection = () => {
             </div>
 
             {/* Video Container */}
-            <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl border-4 border-foreground/10 mb-8">
-              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+            <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl border-4 border-foreground/10 mb-8 cursor-pointer group" onClick={handleVideoPlay}>
+              <div className="relative w-full" style={{ paddingBottom: '45%' }}>
                 <iframe
-                  src="https://www.youtube.com/embed/Nnwg1g8D8zU"
+                  src={`https://www.youtube.com/embed/Nnwg1g8D8zU${isVideoPlaying ? '?autoplay=1' : ''}`}
                   className="absolute inset-0 w-full h-full rounded-xl"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   title="Bronx High School Students Conduct Research at Montefiore Einstein"
                 />
+                
+                {/* Glass Button Overlay */}
+                {!isVideoPlaying && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm transition-all duration-300 group-hover:bg-black/30">
+                    <button
+                      className="flex items-center justify-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 text-white font-semibold text-lg shadow-2xl transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-3xl"
+                      onClick={handleVideoPlay}
+                    >
+                      <Play className="w-6 h-6 fill-white" />
+                      Watch Video
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
 
