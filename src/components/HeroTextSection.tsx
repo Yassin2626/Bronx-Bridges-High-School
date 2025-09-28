@@ -38,12 +38,12 @@ const HeroTextSection = () => {
                 
                 {/* Glass Button Overlay */}
                 {!isVideoPlaying && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm transition-all duration-300 group-hover:bg-black/30">
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm transition-all duration-300 group-hover:bg-black/50">
                     <button
-                      className="flex items-center justify-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 text-white font-semibold text-lg shadow-2xl transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-3xl"
+                      className="flex items-center justify-center gap-3 px-10 py-5 bg-white/30 backdrop-blur-lg rounded-3xl border-2 border-white/40 text-white font-bold text-xl shadow-2xl transition-all duration-300 hover:bg-white/40 hover:scale-110 hover:shadow-3xl hover:border-white/60 hover:backdrop-blur-xl"
                       onClick={handleVideoPlay}
                     >
-                      <Play className="w-6 h-6 fill-white" />
+                      <Play className="w-8 h-8 fill-white drop-shadow-lg" />
                       Watch Video
                     </button>
                   </div>
