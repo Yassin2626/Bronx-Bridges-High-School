@@ -1,7 +1,7 @@
 import React from 'react';
 import eyLogo from '@/assets/ey-logo.png';
 import communityChangeLogo from '@/assets/community-change-logo.png';
-import goodShepherdLogo from '@/assets/good-shepherd-logo.jpg';
+import goodShepherdLogo from '@/assets/good-shepherd-logo.png';
 
 const PartnershipsSection = () => {
   const partnerships = [
@@ -38,25 +38,19 @@ const PartnershipsSection = () => {
           {partnerships.map((partner, index) => (
             <div
               key={index}
-              className="group relative p-8 bg-background/50 backdrop-blur-sm border border-foreground/10 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:bg-background/70 hover:border-foreground/20"
+              className="bg-gradient-to-br from-black via-gray-800 to-gray-700 backdrop-blur-md rounded-2xl p-8 border-4 border-black hover:border-gray-900 hover:shadow-2xl hover:shadow-black/50 transition-all duration-700 group hover:scale-105"
               style={{
                 animationDelay: `${index * 200}ms`
               }}
             >
-              {/* Glow Effect */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
               {/* Content */}
               <div className="relative z-10 flex items-center justify-center h-32">
                 <img
                   src={partner.logo}
                   alt={partner.alt}
-                  className="max-h-full max-w-full object-contain filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-500 drop-shadow-lg"
+                  className="max-h-full max-w-full object-contain drop-shadow-lg"
                 />
               </div>
-              
-              {/* Hover Border Glow */}
-              <div className="absolute inset-0 rounded-3xl border-2 border-transparent bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
             </div>
           ))}
         </div>
