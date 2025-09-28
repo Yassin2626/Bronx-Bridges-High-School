@@ -25,7 +25,7 @@ const HeroTextSection = () => {
             </div>
 
             {/* Video Container */}
-            <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl border-4 border-foreground/10 mb-8 cursor-pointer group" onClick={handleVideoPlay}>
+            <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl border-4 border-foreground/10 mb-8 cursor-pointer group max-w-5xl mx-auto" onClick={handleVideoPlay}>
               <div className="relative w-full" style={{ paddingBottom: '45%' }}>
                 <iframe
                   src={`https://www.youtube.com/embed/Nnwg1g8D8zU${isVideoPlaying ? '?autoplay=1' : ''}`}
@@ -36,15 +36,26 @@ const HeroTextSection = () => {
                   title="Bronx High School Students Conduct Research at Montefiore Einstein"
                 />
                 
-                {/* Glass Button Overlay */}
+                {/* iOS Liquid Glass Button Overlay */}
                 {!isVideoPlaying && (
                   <div className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm transition-all duration-300 group-hover:bg-black/50">
                     <button
-                      className="flex items-center justify-center gap-3 px-10 py-5 bg-white/30 backdrop-blur-lg rounded-3xl border-2 border-white/40 text-white font-bold text-xl shadow-2xl transition-all duration-300 hover:bg-white/40 hover:scale-110 hover:shadow-3xl hover:border-white/60 hover:backdrop-blur-xl"
+                      className="relative flex items-center justify-center gap-4 px-12 py-6 bg-white/15 backdrop-blur-2xl rounded-[2rem] border border-white/25 text-white font-semibold text-xl shadow-[0_8px_32px_rgba(0,0,0,0.3),0_2px_8px_rgba(255,255,255,0.1)_inset,0_1px_2px_rgba(255,255,255,0.2)_inset] transition-all duration-500 hover:bg-white/20 hover:scale-105 hover:shadow-[0_12px_48px_rgba(0,0,0,0.4),0_4px_16px_rgba(255,255,255,0.15)_inset,0_2px_4px_rgba(255,255,255,0.25)_inset] hover:border-white/35 active:scale-95 overflow-hidden group/btn"
                       onClick={handleVideoPlay}
                     >
-                      <Play className="w-8 h-8 fill-white drop-shadow-lg" />
-                      Watch Video
+                      {/* Shimmer effect */}
+                      <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500 animate-[shimmer_2s_ease-in-out_infinite]" 
+                           style={{
+                             background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)',
+                             animation: 'shimmer 2s ease-in-out infinite'
+                           }}>
+                      </div>
+                      
+                      {/* Top highlight */}
+                      <div className="absolute top-[1px] left-[1px] right-[1px] h-8 bg-gradient-to-b from-white/20 to-transparent rounded-t-[2rem]"></div>
+                      
+                      <Play className="w-8 h-8 fill-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] relative z-10" />
+                      <span className="relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]">Watch Video</span>
                     </button>
                   </div>
                 )}

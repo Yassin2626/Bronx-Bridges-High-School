@@ -75,19 +75,19 @@ const QuickAccessResources = () => {
               >
                 <a
                   href={resource.href}
-                  className="block bg-card border border-card-border rounded-2xl p-8 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/40 hover:scale-105 hover:rotate-1 hover:bg-gradient-to-br hover:from-card hover:to-primary/5"
+                  className="block bg-gradient-to-br from-black via-gray-800 to-gray-700 backdrop-blur-md rounded-2xl p-8 border-4 border-black hover:border-gray-900 hover:shadow-2xl hover:shadow-black/50 transition-all duration-700 hover:scale-105"
                 >
                   <div className="flex items-start space-x-6">
                     <div className="flex-shrink-0">
-                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-primary-hover group-hover:shadow-lg group-hover:shadow-primary/30 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-12">
-                        <IconComponent className="w-8 h-8 text-primary group-hover:text-white transition-all duration-300" />
+                      <div className="w-16 h-16 bg-amber-400/20 rounded-full flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-amber-400 group-hover:to-yellow-500 group-hover:shadow-lg group-hover:shadow-amber-400/30 transition-all duration-500 group-hover:scale-110">
+                        <IconComponent className="w-8 h-8 text-amber-400 group-hover:text-white transition-all duration-300" />
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-xl font-bold text-card-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors duration-300 bg-gradient-to-br from-white to-gray-300 bg-clip-text text-transparent">
                         {resource.title}
                       </h3>
-                      <p className="text-muted-foreground leading-relaxed">
+                      <p className="text-white/80 leading-relaxed bg-gradient-to-br from-white/80 to-gray-300/80 bg-clip-text text-transparent">
                         {resource.description}
                       </p>
                     </div>

@@ -27,13 +27,13 @@ const HeroSection = () => {
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-start gap-4 mt-8">
+        <div className="flex flex-col lg:flex-row items-start gap-16 mt-8">
           {/* Left Side - Logo */}
           <div className="flex justify-start lg:w-[10%]">
             <img
               src={logo}
               alt="Bronx Bridges High School Logo"
-              className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 object-contain animate-logo-scale"
+              className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain animate-logo-scale"
             />
           </div>
 

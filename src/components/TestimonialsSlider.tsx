@@ -78,23 +78,23 @@ const TestimonialsSlider = () => {
 
         {/* Main Testimonial Card */}
         <div className="max-w-4xl mx-auto mb-12">
-          <div className="bg-gradient-to-br from-foreground to-foreground/90 rounded-3xl p-8 md:p-12 shadow-2xl border-4 border-foreground h-80 flex items-center">
+          <div className="bg-gradient-to-br from-black via-gray-800 to-gray-700 backdrop-blur-md rounded-2xl p-8 md:p-12 shadow-2xl border-4 border-black hover:border-gray-900 hover:shadow-2xl hover:shadow-black/50 transition-all duration-700 h-80 flex items-center">
             <div className="text-center w-full">
               {/* Quote Icon */}
-              <div className="w-16 h-16 bg-background/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-background" fill="currentColor" viewBox="0 0 24 24">
+              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
                 </svg>
               </div>
 
               {/* Testimonial Text */}
-              <blockquote className="text-xl md:text-xl font-medium text-background leading-relaxed mb-6 h-24 flex items-center justify-center">
+              <blockquote className="text-xl md:text-xl font-medium text-white leading-relaxed mb-6 h-24 flex items-center justify-center bg-gradient-to-br from-white to-gray-300 bg-clip-text text-transparent">
                 <span>"{testimonials[currentSlide].quote}"</span>
               </blockquote>
 
               {/* Author Info */}
               <div className="text-center">
-                <p className="text-lg font-semibold text-background/80">
+                <p className="text-lg font-semibold text-white/80 bg-gradient-to-br from-white/80 to-gray-300/80 bg-clip-text text-transparent">
                   - {testimonials[currentSlide].author}
                 </p>
               </div>
@@ -106,7 +106,7 @@ const TestimonialsSlider = () => {
         <div className="flex items-center justify-center space-x-8">
           <button
             onClick={goToPrevious}
-            className="w-12 h-12 bg-foreground/80 hover:bg-foreground text-background rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-lg"
+            className="w-12 h-12 bg-gradient-to-br from-black via-gray-800 to-gray-700 border-2 border-gray-600 hover:border-gray-500 text-white rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-lg hover:shadow-black/50"
             aria-label="Previous testimonial"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -119,8 +119,8 @@ const TestimonialsSlider = () => {
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-200 ${
                   index === currentSlide 
-                    ? 'bg-foreground w-8' 
-                    : 'bg-foreground/30 hover:bg-foreground/50'
+                    ? 'bg-gradient-to-r from-amber-400 to-yellow-500 w-8 shadow-lg shadow-amber-400/30' 
+                    : 'bg-gray-600 hover:bg-gray-500'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
@@ -129,7 +129,7 @@ const TestimonialsSlider = () => {
 
           <button
             onClick={goToNext}
-            className="w-12 h-12 bg-foreground/80 hover:bg-foreground text-background rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-lg"
+            className="w-12 h-12 bg-gradient-to-br from-black via-gray-800 to-gray-700 border-2 border-gray-600 hover:border-gray-500 text-white rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-lg hover:shadow-black/50"
             aria-label="Next testimonial"
           >
             <ChevronRight className="w-6 h-6" />
