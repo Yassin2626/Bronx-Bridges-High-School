@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import logo from '@/assets/logo.png';
+import mainLogo from '@/assets/main-logo.png';
 import HeroSlider from './HeroSlider';
 const HeroSection = () => {
     return <section id="home" className="relative min-h-screen flex flex-col justify-center bg-gradient-hero overflow-hidden">
@@ -27,18 +27,18 @@ const HeroSection = () => {
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-start gap-16 mt-8">
-          {/* Left Side - Logo */}
-          <div className="flex justify-start lg:w-[10%]">
+        <div className="flex flex-col lg:flex-row items-start gap-8 mt-8">
+          {/* Left Side - Logo - 30% */}
+          <div className="w-full lg:w-[30%] flex justify-center lg:justify-start">
             <img
-              src={logo}
+              src={mainLogo}
               alt="Bronx Bridges High School Logo"
-              className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain animate-logo-scale"
+              className="w-72 h-72 md:w-96 md:h-96 lg:w-full lg:h-auto max-w-md object-contain animate-logo-scale"
             />
           </div>
 
-          {/* Right Side - Photo Slider - 90% width */}
-          <div className="lg:w-[90%] w-full lg:ml-auto">
+          {/* Right Side - Photo Slider - 70% */}
+          <div className="w-full lg:w-[70%]">
             <HeroSlider />
           </div>
         </div>
