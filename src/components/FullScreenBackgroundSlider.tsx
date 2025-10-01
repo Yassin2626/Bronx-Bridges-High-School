@@ -31,8 +31,8 @@ const FullScreenBackgroundSlider = () => {
           setCurrentIndex((prev) => (prev + 1) % photos.length);
           setTimeout(() => {
             setIsTransitioning(false);
-          }, 500);
-        }, 500);
+          }, 300);
+        }, 300);
       }, 4000);
 
       return () => clearInterval(interval);
@@ -86,7 +86,7 @@ const FullScreenBackgroundSlider = () => {
 
       {/* White Overlay for Auto-Transition */}
       <div
-        className={`absolute inset-0 bg-white pointer-events-none transition-opacity duration-500 ${
+        className={`absolute inset-0 bg-white pointer-events-none transition-opacity duration-300 ${
           isTransitioning ? 'opacity-100' : 'opacity-0'
         }`}
         style={{ height: '120vh' }}

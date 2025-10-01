@@ -15,13 +15,16 @@ const HeroTextSection = () => {
           {/* Video Section */}
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 bg-gradient-to-br from-foreground to-muted-foreground bg-clip-text">
+              <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 bg-gradient-to-br from-amber-400 to-yellow-600 bg-clip-text text-transparent">
                 Our Students Making a Difference
               </h2>
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-6">
                 Watch our students conduct groundbreaking cancer research at the Montefiore Einstein Comprehensive Cancer Center, 
                 showcasing the real-world impact of our academic excellence.
               </p>
+              <h3 className="text-2xl md:text-3xl font-bold text-foreground bg-gradient-to-br from-amber-400 to-yellow-600 bg-clip-text text-transparent">
+                Cancer Research Partnership
+              </h3>
             </div>
 
             {/* Video Container */}
@@ -60,13 +63,6 @@ const HeroTextSection = () => {
                   </div>
                 )}
               </div>
-            </div>
-
-            {/* Video Description */}
-            <div className="text-center">
-              <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 bg-gradient-to-br from-amber-400 to-yellow-600 bg-clip-text text-transparent">
-                Cancer Research Partnership
-              </h3>
             </div>
           </div>
         </div>

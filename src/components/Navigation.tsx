@@ -67,25 +67,25 @@ const Navigation = () => {
       isScrolled ? 'top-6' : 'top-0'
     }`}>
       <div className={`nav-glass mx-auto transition-all duration-700 ease-in-out ${
-        isScrolled ? 'w-[85%] max-w-6xl' : 'w-full'
+        isScrolled ? 'w-[85%] max-w-6xl' : 'w-[85%] max-w-6xl'
       }`}>
         <div className={`px-8 transition-all duration-700 ease-in-out ${
-          isScrolled ? 'py-0' : 'py-8'
+          isScrolled ? 'py-0' : 'py-12'
         }`}>
           {/* Big Navbar (Not Scrolled) */}
           {!isScrolled && (
-            <div className="flex flex-col items-center space-y-6 animate-fade-in">
-              {/* Logo and Header Name - Full Width */}
-              <div className="flex items-center justify-center space-x-6 w-full">
+            <div className="flex flex-col items-center space-y-8 animate-fade-in">
+              {/* Header Name - Full Width */}
+              <div className="flex items-center justify-center space-x-8 w-full">
                 <img 
                   src={logo} 
                   alt="Bronx Bridges Logo" 
-                  className="w-16 h-16 object-contain hover:scale-110 transition-transform duration-300"
+                  className="w-24 h-24 object-contain hover:scale-110 transition-transform duration-300"
                 />
                 <img 
                   src={headerName} 
                   alt="Bronx Bridges High School" 
-                  className="h-12 object-contain"
+                  className="h-16 object-contain flex-1"
                 />
               </div>
 
@@ -100,7 +100,7 @@ const Navigation = () => {
                   >
                     <a
                       href={item.href}
-                      className="flex items-center space-x-1 font-bold text-white text-lg hover:text-amber-400 transition-colors duration-300"
+                      className="flex items-center space-x-1 font-bold text-primary text-lg hover:text-primary-hover transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-white/5"
                     >
                       <span>{item.name}</span>
                       {item.dropdown && <ChevronDown className="w-4 h-4" />}
@@ -117,7 +117,7 @@ const Navigation = () => {
                             <a
                               key={dropdownItem.name}
                               href={dropdownItem.href}
-                              className="block py-3 px-4 text-sm font-medium text-white hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-primary-hover rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:translate-x-1"
+                              className="block py-3 px-4 text-sm font-medium text-primary hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-primary-hover rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:translate-x-1"
                             >
                               {dropdownItem.name}
                             </a>
