@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import logo from '@/assets/logo.png';
 import headerName from '@/assets/header_name.png';
 
 const Navigation = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navigationItems = [
     { name: 'Home', href: '#home' },
@@ -18,39 +27,21 @@ const Navigation = () => {
       ],
     },
     {
-      name: 'Students',
-      href: '#students',
+      name: 'Programs',
+      href: '#programs',
       dropdown: [
         { name: 'Academic Offerings', href: '#academic-offerings' },
-        { name: 'News and Announcements', href: '#news' },
-        { name: 'Graduation Requirements', href: '#graduation' },
         { name: 'Extracurricular Activities', href: '#extracurricular' },
-        { name: 'Procedures & Protocols', href: '#procedures' },
-        { name: 'Bell Schedule', href: '#bell-schedule' },
         { name: 'College and Career Preparation', href: '#college-prep' },
-        { name: 'Student Email', href: '#student-email' },
       ],
     },
     {
-      name: 'Faculty',
-      href: '#faculty',
+      name: 'Admissions',
+      href: '#admissions',
       dropdown: [
-        { name: 'Staff Directory', href: '#staff-directory' },
-        { name: 'Staff Links', href: '#staff-links' },
-        { name: 'Login', href: '#login' },
-      ],
-    },
-    {
-      name: 'Parents',
-      href: '#parents',
-      dropdown: [
-        { name: 'School Calendar', href: '#school-calendar' },
-        { name: 'Student Rules and Expectations', href: '#student-rules' },
-        { name: 'College Readiness', href: '#college-readiness' },
-        { name: 'PTA and Resources', href: '#pta-resources' },
-        { name: 'Programs', href: '#programs' },
-        { name: 'Parent Coordinator', href: '#parent-coordinator' },
-        { name: 'Remote Learning', href: '#remote-learning' },
+        { name: 'Prospective Students', href: '#prospective-students' },
+        { name: 'Graduation Requirements', href: '#graduation' },
+        { name: 'Bell Schedule', href: '#bell-schedule' },
       ],
     },
     {
@@ -59,7 +50,6 @@ const Navigation = () => {
       dropdown: [
         { name: '2025-2026 Opportunities', href: '#opportunities' },
         { name: 'Prospective Staff', href: '#prospective-staff' },
-        { name: 'Prospective Students', href: '#prospective-students' },
       ],
     },
     {
@@ -73,74 +63,138 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-6 left-0 right-0 z-50 flex justify-center">
-      <div className="nav-glass w-[85%] max-w-6xl mx-auto">
-        <div className="px-8">
-          <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center space-x-4 flex-shrink-0">
-            <img 
-              src={logo} 
-              alt="Bronx Bridges Logo" 
-              className="w-10 h-10 object-contain hover:scale-110 transition-transform duration-300"
-            />
-            <img 
-              src={headerName} 
-              alt="Bronx Bridges High School" 
-              className="h-5 object-contain"
-            />
-          </div>
-
-          {/* Navigation Items */}
-          <div className="hidden lg:flex items-center space-x-6 flex-shrink-0">
-            {navigationItems.map((item) => (
-              <div
-                key={item.name}
-                className="relative"
-                onMouseEnter={() => setActiveDropdown(item.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                <a
-                  href={item.href}
-                  className="flex items-center space-x-1 font-bold text-primary hover:text-primary-hover transition-colors duration-300"
-                >
-                  <span>{item.name}</span>
-                  {item.dropdown && <ChevronDown className="w-4 h-4" />}
-                </a>
-
-                {/* Dropdown Menu */}
-                {item.dropdown && (
-                  <div
-                    className={`absolute top-full left-0 mt-2 w-64 dropdown-glass ${
-                      activeDropdown === item.name ? 'active' : ''
-                    }`}
-                  >
-                    <div className="p-4">
-                      {item.dropdown.map((dropdownItem) => (
-                        <a
-                          key={dropdownItem.name}
-                          href={dropdownItem.href}
-                          className="block py-3 px-4 text-sm font-medium text-primary hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-primary-hover rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:translate-x-1"
-                        >
-                          {dropdownItem.name}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out ${
+      isScrolled ? 'top-6' : 'top-0'
+    }`}>
+      <div className={`nav-glass mx-auto transition-all duration-700 ease-in-out ${
+        isScrolled ? 'w-[85%] max-w-6xl' : 'w-full'
+      }`}>
+        <div className={`px-8 transition-all duration-700 ease-in-out ${
+          isScrolled ? 'py-0' : 'py-8'
+        }`}>
+          {/* Big Navbar (Not Scrolled) */}
+          {!isScrolled && (
+            <div className="flex flex-col items-center space-y-6 animate-fade-in">
+              {/* Logo and Header Name - Full Width */}
+              <div className="flex items-center justify-center space-x-6 w-full">
+                <img 
+                  src={logo} 
+                  alt="Bronx Bridges Logo" 
+                  className="w-16 h-16 object-contain hover:scale-110 transition-transform duration-300"
+                />
+                <img 
+                  src={headerName} 
+                  alt="Bronx Bridges High School" 
+                  className="h-12 object-contain"
+                />
               </div>
-            ))}
-          </div>
 
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden">
-            <button className="text-primary hover:text-primary-hover">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-          </div>
+              {/* Navigation Items Below */}
+              <div className="flex items-center justify-center space-x-8">
+                {navigationItems.map((item) => (
+                  <div
+                    key={item.name}
+                    className="relative"
+                    onMouseEnter={() => setActiveDropdown(item.name)}
+                    onMouseLeave={() => setActiveDropdown(null)}
+                  >
+                    <a
+                      href={item.href}
+                      className="flex items-center space-x-1 font-bold text-white text-lg hover:text-amber-400 transition-colors duration-300"
+                    >
+                      <span>{item.name}</span>
+                      {item.dropdown && <ChevronDown className="w-4 h-4" />}
+                    </a>
+
+                    {item.dropdown && (
+                      <div
+                        className={`absolute top-full left-0 mt-2 w-64 dropdown-glass ${
+                          activeDropdown === item.name ? 'active' : ''
+                        }`}
+                      >
+                        <div className="p-4">
+                          {item.dropdown.map((dropdownItem) => (
+                            <a
+                              key={dropdownItem.name}
+                              href={dropdownItem.href}
+                              className="block py-3 px-4 text-sm font-medium text-white hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-primary-hover rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:translate-x-1"
+                            >
+                              {dropdownItem.name}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Small Navbar (Scrolled) */}
+          {isScrolled && (
+            <div className="flex items-center justify-between h-16 animate-fade-in">
+              <div className="flex items-center space-x-4 flex-shrink-0">
+                <img 
+                  src={logo} 
+                  alt="Bronx Bridges Logo" 
+                  className="w-10 h-10 object-contain hover:scale-110 transition-transform duration-300"
+                />
+                <img 
+                  src={headerName} 
+                  alt="Bronx Bridges High School" 
+                  className="h-5 object-contain"
+                />
+              </div>
+
+              <div className="hidden lg:flex items-center space-x-6 flex-shrink-0">
+                {navigationItems.map((item) => (
+                  <div
+                    key={item.name}
+                    className="relative"
+                    onMouseEnter={() => setActiveDropdown(item.name)}
+                    onMouseLeave={() => setActiveDropdown(null)}
+                  >
+                    <a
+                      href={item.href}
+                      className="flex items-center space-x-1 font-bold text-primary hover:text-primary-hover transition-colors duration-300"
+                    >
+                      <span>{item.name}</span>
+                      {item.dropdown && <ChevronDown className="w-4 h-4" />}
+                    </a>
+
+                    {item.dropdown && (
+                      <div
+                        className={`absolute top-full left-0 mt-2 w-64 dropdown-glass ${
+                          activeDropdown === item.name ? 'active' : ''
+                        }`}
+                      >
+                        <div className="p-4">
+                          {item.dropdown.map((dropdownItem) => (
+                            <a
+                              key={dropdownItem.name}
+                              href={dropdownItem.href}
+                              className="block py-3 px-4 text-sm font-medium text-primary hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-primary-hover rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:translate-x-1"
+                            >
+                              {dropdownItem.name}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <div className="lg:hidden">
+                <button className="text-primary hover:text-primary-hover">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </nav>
