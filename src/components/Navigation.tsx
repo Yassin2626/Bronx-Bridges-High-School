@@ -63,34 +63,34 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out ${
-      isScrolled ? 'top-6' : 'top-0'
+    <nav className={`fixed left-0 right-0 z-50 transition-all duration-700 ease-in-out ${
+      isScrolled ? 'top-6' : 'top-12'
     }`}>
       <div className={`nav-glass mx-auto transition-all duration-700 ease-in-out ${
         isScrolled ? 'w-[85%] max-w-6xl' : 'w-[85%] max-w-6xl'
       }`}>
         <div className={`px-8 transition-all duration-700 ease-in-out ${
-          isScrolled ? 'py-0' : 'py-12'
+          isScrolled ? 'py-0' : 'py-4'
         }`}>
           {/* Big Navbar (Not Scrolled) */}
           {!isScrolled && (
-            <div className="flex flex-col items-center space-y-8 animate-fade-in">
-              {/* Header Name - Full Width */}
-              <div className="flex items-center justify-center space-x-8 w-full">
-                <img 
-                  src={logo} 
-                  alt="Bronx Bridges Logo" 
-                  className="w-24 h-24 object-contain hover:scale-110 transition-transform duration-300"
-                />
-                <img 
-                  src={headerName} 
-                  alt="Bronx Bridges High School" 
-                  className="h-16 object-contain flex-1"
-                />
-              </div>
+            <div className="flex items-center justify-between animate-fade-in">
+              {/* Logo - Left */}
+              <img 
+                src={logo} 
+                alt="Bronx Bridges Logo" 
+                className="w-16 h-16 object-contain hover:scale-110 transition-all duration-700"
+              />
+              
+              {/* Header Name - Center */}
+              <img 
+                src={headerName} 
+                alt="Bronx Bridges High School" 
+                className="h-10 object-contain transition-all duration-700"
+              />
 
-              {/* Navigation Items Below */}
-              <div className="flex items-center justify-center space-x-8">
+              {/* Navigation Items - Right */}
+              <div className="flex items-center space-x-6">
                 {navigationItems.map((item) => (
                   <div
                     key={item.name}
@@ -100,10 +100,10 @@ const Navigation = () => {
                   >
                     <a
                       href={item.href}
-                      className="flex items-center space-x-1 font-bold text-primary text-lg hover:text-primary-hover transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-white/5"
+                      className="flex items-center space-x-1 font-bold text-primary hover:text-primary-hover transition-all duration-700 px-3 py-2 rounded-lg hover:bg-white/5"
                     >
-                      <span>{item.name}</span>
-                      {item.dropdown && <ChevronDown className="w-4 h-4" />}
+                      <span className="transition-all duration-700">{item.name}</span>
+                      {item.dropdown && <ChevronDown className="w-4 h-4 transition-all duration-700" />}
                     </a>
 
                     {item.dropdown && (
@@ -138,12 +138,12 @@ const Navigation = () => {
                 <img 
                   src={logo} 
                   alt="Bronx Bridges Logo" 
-                  className="w-10 h-10 object-contain hover:scale-110 transition-transform duration-300"
+                  className="w-10 h-10 object-contain hover:scale-110 transition-all duration-700"
                 />
                 <img 
                   src={headerName} 
                   alt="Bronx Bridges High School" 
-                  className="h-5 object-contain"
+                  className="h-5 object-contain transition-all duration-700"
                 />
               </div>
 
@@ -157,10 +157,10 @@ const Navigation = () => {
                   >
                     <a
                       href={item.href}
-                      className="flex items-center space-x-1 font-bold text-primary hover:text-primary-hover transition-colors duration-300"
+                      className="flex items-center space-x-1 font-bold text-primary hover:text-primary-hover transition-all duration-700"
                     >
-                      <span>{item.name}</span>
-                      {item.dropdown && <ChevronDown className="w-4 h-4" />}
+                      <span className="transition-all duration-700">{item.name}</span>
+                      {item.dropdown && <ChevronDown className="w-4 h-4 transition-all duration-700" />}
                     </a>
 
                     {item.dropdown && (

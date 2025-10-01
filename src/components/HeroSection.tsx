@@ -3,7 +3,7 @@ import FullScreenBackgroundSlider from './FullScreenBackgroundSlider';
 
 const HeroSection = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
       <FullScreenBackgroundSlider />
       
       {/* Content overlay - centered and minimal */}

@@ -65,7 +65,7 @@ const FullScreenBackgroundSlider = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-0" style={{ height: '120vh' }}>
+    <div className="absolute inset-0 z-0 h-screen">
       {/* Background Images */}
       {photos.map((photo, index) => (
         <div
@@ -73,7 +73,6 @@ const FullScreenBackgroundSlider = () => {
           className={`absolute inset-0 transition-opacity duration-1000 ${
             index === currentIndex ? 'opacity-100' : 'opacity-0'
           }`}
-          style={{ height: '120vh' }}
         >
           <img
             src={photo.src}
@@ -89,7 +88,6 @@ const FullScreenBackgroundSlider = () => {
         className={`absolute inset-0 bg-white pointer-events-none transition-opacity duration-300 ${
           isTransitioning ? 'opacity-100' : 'opacity-0'
         }`}
-        style={{ height: '120vh' }}
       />
 
       {/* Navigation Arrows */}
@@ -97,14 +95,14 @@ const FullScreenBackgroundSlider = () => {
         <>
           <button
             onClick={goToPrev}
-            className="fixed left-8 top-1/2 -translate-y-1/2 z-50 w-14 h-14 bg-white/10 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 shadow-lg group"
+            className="fixed left-8 top-[45vh] -translate-y-1/2 z-50 w-14 h-14 bg-white/10 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 shadow-lg group"
             aria-label="Previous photo"
           >
             <ChevronLeft className="w-7 h-7 text-white group-hover:scale-125 transition-transform" />
           </button>
           <button
             onClick={goToNext}
-            className="fixed right-8 top-1/2 -translate-y-1/2 z-50 w-14 h-14 bg-white/10 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 shadow-lg group"
+            className="fixed right-8 top-[45vh] -translate-y-1/2 z-50 w-14 h-14 bg-white/10 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 shadow-lg group"
             aria-label="Next photo"
           >
             <ChevronRight className="w-7 h-7 text-white group-hover:scale-125 transition-transform" />
