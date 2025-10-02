@@ -10,11 +10,11 @@ import staffImg from '@/assets/staff.jpg';
 const PhotoSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const photos = [
     { src: graduatesImg, alt: 'Graduates' },
     { src: advancedPlacementImg, alt: 'Advanced Placement' },
-    { src: collegeTripsImg, alt: 'College Trips' },
     { src: roboticsImg, alt: 'Robotics Class' },
     { src: engineeringImg, alt: 'Engineering Class' },
     { src: staffImg, alt: 'Staff' },
@@ -23,21 +23,39 @@ const PhotoSlider = () => {
   useEffect(() => {
     if (!isPaused) {
       const interval = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % photos.length);
-      }, 3500);
+        setIsTransitioning(true);
+        setTimeout(() => {
+          setCurrentIndex((prev) => (prev + 1) % photos.length);
+          setTimeout(() => {
+            setIsTransitioning(false);
+          }, 10);
+        }, 10);
+      }, 2000);
 
       return () => clearInterval(interval);
     }
   }, [isPaused, photos.length]);
 
   const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % photos.length);
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % photos.length);
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 1);
+    }, 1);
     setIsPaused(true);
     setTimeout(() => setIsPaused(false), 3500);
   };
 
   const goToPrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + photos.length) % photos.length);
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex - 1 + photos.length) % photos.length);
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 1);
+    }, 1);
     setIsPaused(true);
     setTimeout(() => setIsPaused(false), 3500);
   };
@@ -51,20 +69,20 @@ const PhotoSlider = () => {
             key={index}
             src={photo.src}
             alt={photo.alt}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1 ${
               index === currentIndex ? 'opacity-100' : 'opacity-0'
             }`}
           />
         ))}
         
         {/* Overlay for better contrast */}
-        <div className="absolute inset-0 bg-black/10" />
+        <div className={`absolute inset-0 transition-opacity duration-100 ${isTransitioning ? 'bg-white/20' : 'bg-black/10'}`} />
       </div>
 
       {/* Navigation Arrows */}
       <button
         onClick={goToPrev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/70 hover:bg-black/90 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 z-10"
+        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/70 hover:bg-black/90 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-1 hover:scale-110 z-10"
         aria-label="Previous image"
       >
         <ChevronLeft className="w-6 h-6" />
@@ -72,7 +90,7 @@ const PhotoSlider = () => {
 
       <button
         onClick={goToNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/70 hover:bg-black/90 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 z-10"
+        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/70 hover:bg-black/90 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-1 hover:scale-110 z-10"
         aria-label="Next image"
       >
         <ChevronRight className="w-6 h-6" />
@@ -84,11 +102,17 @@ const PhotoSlider = () => {
           <button
             key={index}
             onClick={() => {
-              setCurrentIndex(index);
+              setIsTransitioning(true);
+              setTimeout(() => {
+                setCurrentIndex(index);
+                setTimeout(() => {
+                  setIsTransitioning(false);
+                }, 1);
+              }, 1);
               setIsPaused(true);
               setTimeout(() => setIsPaused(false), 3500);
             }}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+            className={`w-2 h-2 rounded-full transition-all duration-1 ${
               index === currentIndex 
                 ? 'bg-white scale-125' 
                 : 'bg-white/50 hover:bg-white/80'

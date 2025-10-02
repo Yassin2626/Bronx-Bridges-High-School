@@ -33,7 +33,6 @@ const HeroTextSection = () => {
                 <iframe
                   src={`https://www.youtube.com/embed/Nnwg1g8D8zU${isVideoPlaying ? '?autoplay=1' : ''}`}
                   className="absolute inset-0 w-full h-full rounded-xl"
-                  frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   title="Bronx High School Students Conduct Research at Montefiore Einstein"
