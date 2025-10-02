@@ -2,7 +2,8 @@ import React from 'react';
 import { 
   MapPin, 
   Phone, 
-  Mail
+  Mail,
+  ChevronRight
 } from 'lucide-react';
 import logo from '@/assets/logo.png';
 
@@ -55,9 +56,23 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-start space-x-4 p-4 bg-muted/10 rounded-lg hover:bg-muted/20 transition-colors duration-300">
                 <MapPin className="w-6 h-6 mt-1 text-foreground" />
-                <div>
-                  <p className="text-base font-medium text-foreground">1980 Lafayette Avenue</p>
-                  <p className="text-base text-muted-foreground">Bronx, NY 10473</p>
+                <div className="flex-1">
+                  <a
+                    href="https://maps.app.goo.gl/EdPWZiFRqxeFxk789"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-base font-medium text-foreground hover:text-primary transition-all duration-300 hover:underline"
+                  >
+                    1980 Lafayette Avenue
+                  </a>
+                  <a
+                    href="https://maps.app.goo.gl/EdPWZiFRqxeFxk789"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-base text-muted-foreground hover:text-primary transition-all duration-300 hover:underline block"
+                  >
+                    Bronx, NY 10473
+                  </a>
                 </div>
               </div>
               <div className="flex items-center space-x-4 p-4 bg-muted/10 rounded-lg hover:bg-muted/20 transition-colors duration-300">
@@ -69,7 +84,14 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-4 p-4 bg-muted/10 rounded-lg hover:bg-muted/20 transition-colors duration-300">
                 <Mail className="w-6 h-6 text-foreground" />
-                <p className="text-base font-medium text-foreground">info@bronxbridges.org</p>
+                <a
+                  href="mailto:info@bronxbridges.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-base font-medium text-foreground hover:text-primary transition-all duration-300 hover:underline"
+                >
+                  info@bronxbridges.org
+                </a>
               </div>
             </div>
           </div>
@@ -82,8 +104,9 @@ const Footer = () => {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-base text-muted-foreground hover:text-foreground transition-all duration-300 hover:translate-x-2 block py-1"
+                    className="flex items-center text-base text-muted-foreground hover:text-foreground transition-all duration-300 hover:translate-x-2 py-1 group"
                   >
+                    <ChevronRight className="w-4 h-4 mr-2 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
                     {link.name}
                   </a>
                 </li>
@@ -99,8 +122,9 @@ const Footer = () => {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-base text-muted-foreground hover:text-foreground transition-all duration-300 hover:translate-x-2 block py-1"
+                    className="flex items-center text-base text-muted-foreground hover:text-foreground transition-all duration-300 hover:translate-x-2 py-1 group"
                   >
+                    <ChevronRight className="w-4 h-4 mr-2 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
                     {link.name}
                   </a>
                 </li>
@@ -119,25 +143,27 @@ const Footer = () => {
             </div>
             <div className="flex flex-wrap gap-6 text-sm">
               <a
-                href="#privacy"
+                href="/privacy-policy"
                 className="text-muted-foreground hover:text-foreground transition-all duration-300"
               >
                 Privacy Policy
               </a>
               <a
-                href="#terms"
+                href="/terms-of-service"
                 className="text-muted-foreground hover:text-foreground transition-all duration-300"
               >
                 Terms of Use
               </a>
               <a
-                href="#accessibility"
+                href="/accessibility"
                 className="text-muted-foreground hover:text-foreground transition-all duration-300"
               >
                 Accessibility
               </a>
               <a
-                href="#site-map"
+                href="https://maps.app.goo.gl/EdPWZiFRqxeFxk789"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-all duration-300"
               >
                 Site Map
