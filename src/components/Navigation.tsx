@@ -70,22 +70,25 @@ const Navigation = () => {
       {/* Big Navbar (Not Scrolled) - Full width with grey bottom line */}
       {!isScrolled && (
         <div className="big-navbar">
-          <div className="flex items-center justify-between max-w-7xl mx-auto">
-            {/* Logo and Header Name */}
-            <div className="flex items-center space-x-4">
-              <img 
-                src={logo} 
-                alt="Bronx Bridges Logo" 
+          <div className="flex items-center justify-between w-full px-8">
+            {/* Logo and Header Name - Left side */}
+            <div className="flex items-center space-x-4 flex-none">
+              <img
+                src={logo}
+                alt="Bronx Bridges Logo"
                 className="w-16 h-16 object-contain hover:scale-110 transition-all duration-500"
               />
-              <img 
-                src={headerName} 
-                alt="Bronx Bridges High School" 
+              <img
+                src={headerName}
+                alt="Bronx Bridges High School"
                 className="h-12 object-contain transition-all duration-500"
               />
             </div>
-            
-            {/* Navigation Items */}
+
+            {/* Spacer to push navigation to the right */}
+            <div className="flex-1 hidden lg:block"></div>
+
+            {/* Navigation Items - Right side */}
             <div className="hidden lg:flex items-center space-x-6">
               {navigationItems.map((item) => (
                 <div
@@ -124,8 +127,8 @@ const Navigation = () => {
                 </div>
               ))}
             </div>
-            
-            {/* Mobile Menu Button */}
+
+            {/* Mobile Menu Button - Right side */}
             <div className="lg:hidden">
               <button className="text-primary hover:text-primary-hover">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
