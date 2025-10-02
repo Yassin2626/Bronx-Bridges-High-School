@@ -87,13 +87,13 @@ const FullScreenBackgroundSlider = () => {
         }`}
       />
 
-      {/* Bottom Navigation Arrows with Images - Always Visible */}
-      <div className="absolute bottom-8 left-0 right-0 flex items-center justify-between px-8 z-50">
+      {/* Navigation Arrows with Images - Always Visible */}
+      <div className="absolute bottom-16 left-0 right-0 flex items-center justify-between px-12 z-50">
         <button
           onClick={goToPrev}
           aria-label="Previous photo"
           className="transition-transform duration-300 hover:scale-110 focus:outline-none"
-          style={{ marginLeft: '15%' }} /* ~70% from center */
+          style={{ marginLeft: '20%' }} /* Moved more to the right */
         >
           <img
             src={slideLeft}
@@ -105,7 +105,7 @@ const FullScreenBackgroundSlider = () => {
           onClick={goToNext}
           aria-label="Next photo"
           className="transition-transform duration-300 hover:scale-110 focus:outline-none"
-          style={{ marginRight: '15%' }} /* ~70% from center */
+          style={{ marginRight: '20%' }} /* Moved more to the right */
         >
           <img
             src={slideRight}

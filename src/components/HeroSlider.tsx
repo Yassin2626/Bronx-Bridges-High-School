@@ -57,7 +57,6 @@ const HeroSlider = () => {
             style={{ objectFit: 'cover', objectPosition: 'center' }}
           />
         ))}
-        
         {/* Overlay for better contrast */}
         <div className="absolute inset-0 bg-black/10" />
       </div>
@@ -65,7 +64,7 @@ const HeroSlider = () => {
       {/* Navigation Arrows */}
       <button
         onClick={goToPrev}
-        className="absolute left-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-foreground/80 hover:bg-foreground text-background rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 z-10 shadow-lg"
+        className="absolute left-10 top-1/3 -translate-y-1/2 w-14 h-14 bg-foreground/80 hover:bg-foreground text-background rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 z-10 shadow-lg"
         aria-label="Previous image"
       >
         <ChevronLeft className="w-7 h-7" />
@@ -73,7 +72,7 @@ const HeroSlider = () => {
 
       <button
         onClick={goToNext}
-        className="absolute right-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-foreground/80 hover:bg-foreground text-background rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 z-10 shadow-lg"
+        className="absolute right-10 top-1/3 -translate-y-1/2 w-14 h-14 bg-foreground/80 hover:bg-foreground text-background rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 z-10 shadow-lg"
         aria-label="Next image"
       >
         <ChevronRight className="w-7 h-7" />

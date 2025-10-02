@@ -9,7 +9,8 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100); /* Changed: 2 scrolls instead of 1 (100px instead of 50px) */
+      // Changed to 2 scrolls (200px) instead of 1 scroll (100px)
+      setIsScrolled(window.scrollY > 200);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -64,78 +65,82 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed left-0 right-0 z-50 transition-all duration-700 ease-in-out ${
-      isScrolled ? 'top-6' : 'top-12'
+      isScrolled ? 'top-6' : 'top-0'
     }`}>
-      <div className={`nav-glass mx-auto transition-all duration-500 ease-in-out ${
-        isScrolled ? 'w-[75%] max-w-5xl' : 'w-[40%] max-w-5xl' /* Slightly bigger: w-[42%] from w-[40%] */
-      }`}>
-        <div className={`px-4 transition-all duration-500 ease-in-out ${
-          isScrolled ? 'py-0' : 'py-2' /* Synchronized: smooth padding transition */
-        }`}>
-          {/* Big Navbar (Not Scrolled) */}
-          {!isScrolled && (
-            <div className="flex items-start transition-all duration-500 ease-in-out py-1">
-              {/* Logo - Left */}
+      {/* Big Navbar (Not Scrolled) - Full width with grey bottom line */}
+      {!isScrolled && (
+        <div className="big-navbar">
+          <div className="flex items-center justify-between max-w-7xl mx-auto">
+            {/* Logo and Header Name */}
+            <div className="flex items-center space-x-4">
               <img 
                 src={logo} 
                 alt="Bronx Bridges Logo" 
-                className="w-21 h-21 object-contain hover:scale-110 transition-all duration-500 mr-4 mt-2" /* Fixed: maintain current size */
+                className="w-16 h-16 object-contain hover:scale-110 transition-all duration-500"
               />
-              
-              {/* Header Name and Navigation - Vertical Layout */}
-              <div className="flex flex-col items-start">
-                {/* Header Name - Top */}
-                <img 
-                  src={headerName} 
-                  alt="Bronx Bridges High School" 
-                  className="h-14 object-contain transition-all duration-500 mt-5 mb-2" /* Fixed: maintain current position */
-                />
-                
-                {/* Navigation Items - Bottom */}
-                <div className="flex items-center space-x-6 transition-all duration-500 mt-6">
-                  {navigationItems.map((item) => (
-                    <div
-                      key={item.name}
-                      className="relative"
-                      onMouseEnter={() => setActiveDropdown(item.name)}
-                      onMouseLeave={() => setActiveDropdown(null)}
-                    >
-                      <a
-                        href={item.href}
-                        className="flex items-center space-x-1 font-bold text-primary hover:text-primary-hover transition-all duration-700 px-3 py-2 rounded-lg hover:bg-white/5"
-                      >
-                        <span className="transition-all duration-700">{item.name}</span>
-                        {item.dropdown && <ChevronDown className="w-4 h-4 transition-all duration-700" />}
-                      </a>
-
-                      {item.dropdown && (
-                        <div
-                          className={`absolute top-full left-0 mt-2 w-64 dropdown-glass ${
-                            activeDropdown === item.name ? 'active' : ''
-                          }`}
-                        >
-                          <div className="p-4">
-                            {item.dropdown.map((dropdownItem) => (
-                              <a
-                                key={dropdownItem.name}
-                                href={dropdownItem.href}
-                                className="block py-3 px-4 text-sm font-medium text-primary hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-primary-hover rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:translate-x-1"
-                              >
-                                {dropdownItem.name}
-                              </a>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <img 
+                src={headerName} 
+                alt="Bronx Bridges High School" 
+                className="h-12 object-contain transition-all duration-500"
+              />
             </div>
-          )}
+            
+            {/* Navigation Items */}
+            <div className="hidden lg:flex items-center space-x-6">
+              {navigationItems.map((item) => (
+                <div
+                  key={item.name}
+                  className="relative"
+                  onMouseEnter={() => setActiveDropdown(item.name)}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  <a
+                    href={item.href}
+                    className="flex items-center space-x-1 font-bold text-primary hover:text-primary-hover transition-all duration-700 px-3 py-2 rounded-lg hover:bg-white/5"
+                  >
+                    <span className="transition-all duration-700">{item.name}</span>
+                    {item.dropdown && <ChevronDown className="w-4 h-4 transition-all duration-700" />}
+                  </a>
 
-          {/* Small Navbar (Scrolled) */}
-          {isScrolled && (
+                  {item.dropdown && (
+                    <div
+                      className={`absolute top-full left-0 mt-2 w-64 dropdown-glass ${
+                        activeDropdown === item.name ? 'active' : ''
+                      }`}
+                    >
+                      <div className="p-4">
+                        {item.dropdown.map((dropdownItem) => (
+                          <a
+                            key={dropdownItem.name}
+                            href={dropdownItem.href}
+                            className="block py-3 px-4 text-sm font-medium text-primary hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-primary-hover rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:translate-x-1"
+                          >
+                            {dropdownItem.name}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+            
+            {/* Mobile Menu Button */}
+            <div className="lg:hidden">
+              <button className="text-primary hover:text-primary-hover">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Small Navbar (Scrolled) - Keep existing styling */}
+      {isScrolled && (
+        <div className="nav-glass mx-auto transition-all duration-500 ease-in-out w-[75%] max-w-5xl">
+          <div className="px-4 py-0 transition-all duration-500 ease-in-out">
             <div className="flex items-center justify-between h-16 transition-all duration-500 ease-in-out">
               <div className="flex items-center space-x-2 flex-shrink-0">
                 <img 
@@ -197,9 +202,9 @@ const Navigation = () => {
                 </button>
               </div>
             </div>
-          )}
+          </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 };

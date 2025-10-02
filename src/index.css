@@ -131,6 +131,23 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Big Navbar Styles */
+.big-navbar {
+  background: white;
+  border-bottom: 2px solid #000000;
+  width: 100%;
+  padding: 1rem 2rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.big-navbar:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-1px);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
   /* Hero Section */
   .hero-gradient {
     background: var(--gradient-hero);
