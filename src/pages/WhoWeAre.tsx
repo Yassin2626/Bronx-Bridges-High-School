@@ -1,17 +1,19 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import heroBgImg from '../assets/WhoWeAre.jpg';
 
 const WhoWeAre = () => {
   return (
     <>
       <Navigation />
       <div className="min-h-screen bg-white mt-20">
-        {/* Hero Section */}
-        <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-32">
-          <div className="container mx-auto px-6 text-center">
-            <h1 className="text-6xl md:text-8xl font-bold mb-6">Who We Are</h1>
-            <p className="text-2xl md:text-3xl max-w-4xl mx-auto leading-relaxed">
+        {/* Hero Section with Background Image */}
+        <div className="relative h-96 bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: `url(${heroBgImg})` }}>
+          <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+          <div className="relative z-10 text-center text-white px-6">
+            <h1 className="text-5xl md:text-7xl font-bold mb-4">Who We Are</h1>
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto">
               Building futures and bridging communities through excellence in education
             </p>
           </div>
