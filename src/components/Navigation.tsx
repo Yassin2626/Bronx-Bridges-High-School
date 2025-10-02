@@ -9,8 +9,8 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Changed to 2 scrolls (200px) instead of 1 scroll (100px)
-      setIsScrolled(window.scrollY > 200);
+      // Changed to half a scroll (50px)
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
