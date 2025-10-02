@@ -17,6 +17,7 @@ const Navigation = () => {
   }, []);
 
   const navigationItems = [
+    { name: 'Home', href: '#home' },
     {
       name: 'About Us',
       href: '#about',
@@ -27,21 +28,39 @@ const Navigation = () => {
       ],
     },
     {
-      name: 'Programs',
-      href: '#programs',
+      name: 'Students',
+      href: '#students',
       dropdown: [
         { name: 'Academic Offerings', href: '#academic-offerings' },
+        { name: 'News and Announcements', href: '#news' },
+        { name: 'Graduation Requirements', href: '#graduation' },
         { name: 'Extracurricular Activities', href: '#extracurricular' },
+        { name: 'Procedures & Protocols', href: '#procedures' },
+        { name: 'Bell Schedule', href: '#bell-schedule' },
         { name: 'College and Career Preparation', href: '#college-prep' },
+        { name: 'Student Email', href: 'http://www.google.com/a/bronxbridges.org', external: true },
       ],
     },
     {
-      name: 'Admissions',
-      href: '#admissions',
+      name: 'Faculty',
+      href: '#faculty',
       dropdown: [
-        { name: 'Prospective Students', href: '#prospective-students' },
-        { name: 'Graduation Requirements', href: '#graduation' },
-        { name: 'Bell Schedule', href: '#bell-schedule' },
+        { name: 'Staff Directory', href: '#staff-directory' },
+        { name: 'Staff Links', href: '#staff-links' },
+        { name: 'Login', href: 'https://sites.google.com/a/bronxbridges.org/bronx-bridges-2015-16/', external: true },
+      ],
+    },
+    {
+      name: 'Parents',
+      href: '#parents',
+      dropdown: [
+        { name: 'School Calendar', href: '#school-calendar' },
+        { name: 'Student Rules and Expectations', href: '#student-rules' },
+        { name: 'College Readiness', href: '#college-readiness' },
+        { name: 'PTA and Resources', href: '#pta' },
+        { name: 'Programs', href: '#programs' },
+        { name: 'Parent Coordinator', href: '#parent-coordinator' },
+        { name: 'Remote Learning', href: '#remote-learning' },
       ],
     },
     {
@@ -50,13 +69,14 @@ const Navigation = () => {
       dropdown: [
         { name: '2025-2026 Opportunities', href: '#opportunities' },
         { name: 'Prospective Staff', href: '#prospective-staff' },
+        { name: 'Prospective Students', href: '#prospective-students' },
       ],
     },
     {
       name: 'Contact Us',
       href: '#contact',
       dropdown: [
-        { name: 'Contact', href: '#contact-info' },
+        { name: 'Contact', href: '#contact' },
         { name: 'Campus Map', href: '#campus-map' },
       ],
     },
@@ -116,6 +136,8 @@ const Navigation = () => {
                           <a
                             key={dropdownItem.name}
                             href={dropdownItem.href}
+                            target={dropdownItem.external ? "_blank" : "_self"}
+                            rel={dropdownItem.external ? "noopener noreferrer" : ""}
                             className="block py-3 px-4 text-sm font-medium text-primary hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-primary-hover rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:translate-x-1"
                           >
                             {dropdownItem.name}
@@ -142,7 +164,7 @@ const Navigation = () => {
 
       {/* Small Navbar (Scrolled) - Keep existing styling */}
       {isScrolled && (
-        <div className="nav-glass mx-auto transition-all duration-500 ease-in-out w-[75%] max-w-5xl">
+        <div className="nav-glass mx-auto transition-all duration-500 ease-in-out w-[80%] max-w-6xl">
           <div className="px-4 py-0 transition-all duration-500 ease-in-out">
             <div className="flex items-center justify-between h-16 transition-all duration-500 ease-in-out">
               <div className="flex items-center space-x-2 flex-shrink-0">
@@ -186,6 +208,8 @@ const Navigation = () => {
                             <a
                               key={dropdownItem.name}
                               href={dropdownItem.href}
+                              target={dropdownItem.external ? "_blank" : "_self"}
+                              rel={dropdownItem.external ? "noopener noreferrer" : ""}
                               className="block py-3 px-4 text-sm font-medium text-primary hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-primary-hover rounded-lg transition-all duration-500 hover:scale-105 hover:shadow-lg transform hover:translate-x-1"
                             >
                               {dropdownItem.name}
@@ -197,7 +221,6 @@ const Navigation = () => {
                   </div>
                 ))}
               </div>
-
               <div className="lg:hidden">
                 <button className="text-primary hover:text-primary-hover">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

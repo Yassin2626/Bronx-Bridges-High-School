@@ -21,7 +21,7 @@ const HeroTextSection = () => {
               <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-6">
                 Watch our students conduct groundbreaking cancer research at the Montefiore Einstein Comprehensive Cancer Center, 
                 showcasing the real-world impact of our academic excellence.
-              </p>
+              </p>  
               <h3 className="text-2xl md:text-3xl font-bold text-black">
                 Cancer Research Partnership
               </h3>
