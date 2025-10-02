@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import graduates from '@/assets/graduates.png';
 import advancedPlacement from '@/assets/advanced-placement.jpg';
 import collegeTrips from '@/assets/college-trips.jpg';
 import robotics from '@/assets/robotics.jpg';
 import engineering from '@/assets/engineering.jpg';
 import staff from '@/assets/staff.jpg';
+import slideLeft from '@/assets/slide_left.png';
+import slideRight from '@/assets/slide_right.png';
 
 const FullScreenBackgroundSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -39,13 +40,9 @@ const FullScreenBackgroundSlider = () => {
     }
   }, [isPaused, photos.length]);
 
-  // Show arrows on scroll
+  // Arrows always visible - no scroll condition needed
   useEffect(() => {
-    const handleScroll = () => {
-      setShowArrows(window.scrollY > 100);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    setShowArrows(true);
   }, []);
 
   const handleManualChange = (newIndex: number) => {
@@ -90,25 +87,33 @@ const FullScreenBackgroundSlider = () => {
         }`}
       />
 
-      {/* Navigation Arrows */}
-      {showArrows && (
-        <>
-          <button
-            onClick={goToPrev}
-            className="fixed left-8 top-[45vh] -translate-y-1/2 z-50 w-14 h-14 bg-white/10 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 shadow-lg group"
-            aria-label="Previous photo"
-          >
-            <ChevronLeft className="w-7 h-7 text-white group-hover:scale-125 transition-transform" />
-          </button>
-          <button
-            onClick={goToNext}
-            className="fixed right-8 top-[45vh] -translate-y-1/2 z-50 w-14 h-14 bg-white/10 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 shadow-lg group"
-            aria-label="Next photo"
-          >
-            <ChevronRight className="w-7 h-7 text-white group-hover:scale-125 transition-transform" />
-          </button>
-        </>
-      )}
+      {/* Bottom Navigation Arrows with Images - Always Visible */}
+      <div className="absolute bottom-8 left-0 right-0 flex items-center justify-between px-8 z-50">
+        <button
+          onClick={goToPrev}
+          aria-label="Previous photo"
+          className="transition-transform duration-300 hover:scale-110 focus:outline-none"
+          style={{ marginLeft: '15%' }} /* ~70% from center */
+        >
+          <img
+            src={slideLeft}
+            alt="Previous"
+            className="h-12 md:h-16 w-auto object-contain drop-shadow-lg"
+          />
+        </button>
+        <button
+          onClick={goToNext}
+          aria-label="Next photo"
+          className="transition-transform duration-300 hover:scale-110 focus:outline-none"
+          style={{ marginRight: '15%' }} /* ~70% from center */
+        >
+          <img
+            src={slideRight}
+            alt="Next"
+            className="h-12 md:h-16 w-auto object-contain drop-shadow-lg"
+          />
+        </button>
+      </div>
     </div>
   );
 };
