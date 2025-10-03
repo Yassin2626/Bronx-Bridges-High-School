@@ -167,7 +167,7 @@ const StatisticsSection = () => {
                         strokeLinecap="round"
                         strokeDasharray={220}
                         strokeDashoffset={220 - (220 * progressValue) / 100}
-                        className="transition-all duration-[3500ms] ease-out"
+                        className="transition-all duration-&lsqb;3500ms&rsqb; ease-out"
                       />
                       {/* Gradient definition */}
                       <defs>

@@ -3,17 +3,16 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import goodShepherdLogo from '../assets/good-shepherd-logo.png';
 import communityChangeLogo from '../assets/community-change-logo.png';
-
 const Partners = () => {
   return (
     <>
       <Navigation />
       <div className="min-h-screen bg-white mt-20">
-        {/* Hero Section */}
-        <div className="bg-gradient-to-r from-green-600 to-green-800 text-white py-24">
+        {/* Hero Section - Same as WhoWeAre */}
+        <div className="bg-gray-100 py-24">
           <div className="container mx-auto px-6 text-center">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">Partners</h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto">
+            <h1 className="text-7xl md:text-9xl font-bold mb-6 text-black">Partners</h1>
+            <p className="text-2xl md:text-3xl text-gray-600 max-w-4xl mx-auto">
               Collaborating with organizations to enhance educational opportunities and community impact
             </p>
           </div>

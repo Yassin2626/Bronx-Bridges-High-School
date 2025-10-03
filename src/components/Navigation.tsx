@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 import logo from '@/assets/logo.png';
 import headerName from '@/assets/header_name.png';
@@ -17,7 +18,7 @@ const Navigation = () => {
   }, []);
 
   const navigationItems = [
-    { name: 'Home', href: '#home' },
+    { name: 'Home', href: '/' },
     {
       name: 'About Us',
       href: '#about',
@@ -92,16 +93,20 @@ const Navigation = () => {
           <div className="flex items-center justify-between w-full px-8">
             {/* Logo and Header Name - Left side */}
             <div className="flex items-center space-x-4 flex-none">
-              <img
-                src={logo}
-                alt="Bronx Bridges Logo"
-                className="w-16 h-16 object-contain hover:scale-110 transition-all duration-500"
-              />
-              <img
-                src={headerName}
-                alt="Bronx Bridges High School"
-                className="h-12 object-contain transition-all duration-500"
-              />
+              <Link to="/" className="hover:scale-110 transition-all duration-500 block">
+                <img
+                  src={logo}
+                  alt="Bronx Bridges Logo"
+                  className="w-16 h-16 object-contain"
+                />
+              </Link>
+              <Link to="/" className="transition-all duration-500 block">
+                <img
+                  src={headerName}
+                  alt="Bronx Bridges High School"
+                  className="h-12 object-contain"
+                />
+              </Link>
             </div>
 
             {/* Spacer to push navigation to the right */}
@@ -133,15 +138,15 @@ const Navigation = () => {
                     >
                       <div className="p-4">
                         {item.dropdown.map((dropdownItem) => (
-                          <a
+                          <Link
                             key={dropdownItem.name}
-                            href={dropdownItem.href}
+                            to={dropdownItem.href}
                             target={dropdownItem.external ? "_blank" : "_self"}
                             rel={dropdownItem.external ? "noopener noreferrer" : ""}
                             className="block py-3 px-4 text-sm font-medium text-primary hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-primary-hover rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:translate-x-1"
                           >
                             {dropdownItem.name}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -168,16 +173,20 @@ const Navigation = () => {
           <div className="px-4 py-0 transition-all duration-500 ease-in-out">
             <div className="flex items-center justify-between h-16 transition-all duration-500 ease-in-out">
               <div className="flex items-center space-x-2 flex-shrink-0">
-                <img 
-                  src={logo} 
-                  alt="Bronx Bridges Logo" 
-                  className="w-10 h-10 object-contain hover:scale-110 transition-all duration-500"
-                />
-                <img 
-                  src={headerName} 
-                  alt="Bronx Bridges High School" 
-                  className="h-5 object-contain transition-all duration-500"
-                />
+                <Link to="/" className="hover:scale-110 transition-all duration-500 block">
+                  <img 
+                    src={logo} 
+                    alt="Bronx Bridges Logo" 
+                    className="w-10 h-10 object-contain"
+                  />
+                </Link>
+                <Link to="/" className="transition-all duration-500 block">
+                  <img 
+                    src={headerName} 
+                    alt="Bronx Bridges High School" 
+                    className="h-5 object-contain"
+                  />
+                </Link>
               </div>
 
               <div className="hidden lg:flex items-center space-x-6 flex-shrink-0">
