@@ -22,9 +22,7 @@ const Partners = () => {
         <div className="container mx-auto px-6 py-16">
           <div className="max-w-6xl mx-auto">
             <div className="prose prose-lg text-gray-800">
-              <p className="text-xl leading-relaxed mb-12">
-                Bronx Bridges High School collaborates with various organizations and institutions to enhance our educational programs and provide students with real-world opportunities.
-              </p>
+
 
               {/* Partners Section */}
               <h2 className="text-3xl font-bold text-gray-800 mb-8">Our Key Partners</h2>
