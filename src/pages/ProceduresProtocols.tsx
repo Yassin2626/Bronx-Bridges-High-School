@@ -22,7 +22,7 @@ const ProceduresProtocols = () => {
     },
     {
       title: 'Electronic Devices',
-      description: 'We are a scanning building. No type of electronic device is permitted into the school building. This includes mp3 players and cell phones. We realize students need their phones on their way to and from school. As a courtesy, our staff will collect cell phones and mp3 players from 8:20 AM to 8:40 AM before the start of school and before students enter scanning. We will not collect phones after 8:40AM. All cell phones and mp3 players will be returned at the end of the day. Students who leave school prior to their last class without official permission cannot collect their items.',
+      description: 'We are a scanning building. No type of electronic device is permitted into the school building. This includes mp3 players and cell phones. We realize students need their phones on their way to and from school. As a courtesy, our staff will collect cell phones and mp3 players from 7:40 AM to 8:25 AM before the start of school and before students enter scanning. We will not collect phones after 8:25AM. All cell phones and mp3 players will be returned at the end of the day. Students who leave school prior to their last class without official permission cannot collect their items.',
       icon: Smartphone,
     },
     {

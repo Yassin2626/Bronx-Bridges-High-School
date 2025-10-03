@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import {
@@ -13,6 +13,23 @@ import pic4 from '../assets/Extracurricular_Activities_Pic_4.png';
 import pic5 from '../assets/Extracurricular_Activities_Pic_5.png';
 
 const ExtracurricularActivities = () => {
+  const [visibleClubs, setVisibleClubs] = useState<number>(0);
+  const totalClubs = 21;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisibleClubs(prev => {
+        if (prev < totalClubs) {
+          return prev + 1;
+        }
+        clearInterval(interval);
+        return prev;
+      });
+    }, 100); // Animate one club every 100ms
+
+    return () => clearInterval(interval);
+  }, []);
+
   const clubs = [
     {
       name: 'U.S. History',
@@ -189,7 +206,7 @@ const ExtracurricularActivities = () => {
       <Navigation />
       <div className="min-h-screen bg-white mt-20">
         {/* Hero Section */}
-        <div className="bg-gradient-to-r from-gray-50 to-gray-200 text-gray-800 py-24">
+        <div className="bg-gradient-to-r from-gray-50 to-gray-200 text-gray-800 py-24 animate-fade-in">
           <div className="container mx-auto px-6 text-center">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gray-900">Extracurricular Activities</h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-700">
@@ -203,16 +220,16 @@ const ExtracurricularActivities = () => {
           <div className="max-w-7xl mx-auto">
 
             {/* Afterschool Program Enrollment */}
-            <section className="mb-16">
+            <section className="mb-16 animate-fade-in">
               <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Afterschool Program Enrollment Forms</h2>
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-8 rounded-lg text-center">
-                <h3 className="text-xl font-semibold text-blue-800 mb-6">Enrollment Forms</h3>
+              <div className="bg-gray-50 border-l-4 border-gray-500 p-8 rounded-lg text-center animate-slide-up">
+                <h3 className="text-xl font-semibold text-gray-800 mb-6">Enrollment Forms</h3>
                 <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8">
                   <a
                     href="https://docs.google.com/forms/d/e/1FAIpQLScn_9Zy8krkK0GHqjFpIRu5ADvgj711RbfTFBBnuBOxYP7Lng/viewform"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+                    className="flex items-center bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-all duration-300 hover:scale-105 animate-pulse"
                   >
                     <ExternalLink className="w-5 h-5 mr-2" />
                     English Form
@@ -221,7 +238,7 @@ const ExtracurricularActivities = () => {
                     href="https://docs.google.com/forms/d/e/1FAIpQLSfmF-pRWFJvuh7Q9k4lQ53xC8BXr94SCQ44VrjGqrGYCFFAmQ/viewform"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors"
+                    className="flex items-center bg-gray-700 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-all duration-300 hover:scale-105 animate-pulse"
                   >
                     <ExternalLink className="w-5 h-5 mr-2" />
                     Spanish Form
@@ -231,22 +248,26 @@ const ExtracurricularActivities = () => {
             </section>
 
             {/* Clubs Section */}
-            <section className="mb-16">
+            <section className="mb-16 animate-fade-in">
               <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Available Clubs</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {clubs.map((club, index) => {
+                {clubs.slice(0, visibleClubs).map((club, index) => {
                   const IconComponent = club.icon;
                   return (
-                    <div key={index} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div
+                      key={index}
+                      className={`bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-500 hover:scale-105 animate-slide-up`}
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    >
                       <div className="flex items-center mb-4">
-                        <IconComponent className="w-10 h-10 text-blue-600 mr-3" />
+                        <IconComponent className="w-10 h-10 text-gray-600 mr-3 animate-bounce" />
                         <h3 className="text-xl font-semibold text-gray-800">{club.name}</h3>
                       </div>
                       <div className="mb-4">
                         <img
                           src={club.image}
                           alt={club.name}
-                          className="w-full h-32 object-cover rounded-lg mb-3"
+                          className="w-full h-32 object-cover rounded-lg mb-3 animate-fade-in"
                         />
                         <p className="text-sm font-medium text-gray-600">
                           <strong>Days:</strong> {club.days}

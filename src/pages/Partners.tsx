@@ -3,16 +3,17 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import goodShepherdLogo from '../assets/good-shepherd-logo.png';
 import communityChangeLogo from '../assets/community-change-logo.png';
+
 const Partners = () => {
   return (
     <>
       <Navigation />
       <div className="min-h-screen bg-white mt-20">
         {/* Hero Section - Same as WhoWeAre */}
-        <div className="bg-gray-100 py-24">
+        <div className="bg-gray-100 py-24 animate-fade-in">
           <div className="container mx-auto px-6 text-center">
-            <h1 className="text-7xl md:text-9xl font-bold mb-6 text-black">Partners</h1>
-            <p className="text-2xl md:text-3xl text-gray-600 max-w-4xl mx-auto">
+            <h1 className="text-7xl md:text-9xl font-bold mb-6 text-black animate-slide-up">Partners</h1>
+            <p className="text-2xl md:text-3xl text-gray-600 max-w-4xl mx-auto animate-slide-up" style={{ animationDelay: '0.2s' }}>
               Collaborating with organizations to enhance educational opportunities and community impact
             </p>
           </div>
@@ -23,14 +24,13 @@ const Partners = () => {
           <div className="max-w-6xl mx-auto">
             <div className="prose prose-lg text-gray-800">
 
-
               {/* Partners Section */}
-              <h2 className="text-3xl font-bold text-gray-800 mb-8">Our Key Partners</h2>
+              <h2 className="text-3xl font-bold text-gray-800 mb-8 animate-slide-up" style={{ animationDelay: '0.4s' }}>Our Key Partners</h2>
 
               {/* Good Shepherd Services */}
-              <div className="bg-gray-50 p-8 rounded-lg mb-8">
+              <div className="bg-gray-50 p-8 rounded-lg mb-8 animate-fade-in" style={{ animationDelay: '0.6s' }}>
                 <div className="flex flex-col md:flex-row items-center gap-8">
-                  <div className="flex-shrink-0">
+                  <div className="flex-shrink-0 animate-bounce">
                     <img
                       src={goodShepherdLogo}
                       alt="Good Shepherd Services Logo"
@@ -50,9 +50,9 @@ const Partners = () => {
               </div>
 
               {/* Community Change, Inc. */}
-              <div className="bg-gray-50 p-8 rounded-lg mb-8">
+              <div className="bg-gray-50 p-8 rounded-lg mb-8 animate-fade-in" style={{ animationDelay: '0.8s' }}>
                 <div className="flex flex-col md:flex-row items-center gap-8">
-                  <div className="flex-shrink-0">
+                  <div className="flex-shrink-0 animate-bounce">
                     <img
                       src={communityChangeLogo}
                       alt="Community Change, Inc. Logo"
@@ -75,22 +75,22 @@ const Partners = () => {
               </div>
 
               {/* Partnership Benefits */}
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">Partnership Benefits</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="bg-blue-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold text-blue-800 mb-3">Enhanced Programs</h3>
+              <h2 className="text-3xl font-bold text-gray-800 mb-6 animate-slide-up" style={{ animationDelay: '1s' }}>Partnership Benefits</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in" style={{ animationDelay: '1.2s' }}>
+                <div className="bg-gray-50 p-6 rounded-lg hover:shadow-md transition-shadow animate-slide-up" style={{ animationDelay: '1.4s' }}>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Enhanced Programs</h3>
                   <p className="text-gray-600">Access to additional resources, specialized programs, and expert guidance that enrich our curriculum and student experience.</p>
                 </div>
-                <div className="bg-blue-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold text-blue-800 mb-3">Community Impact</h3>
+                <div className="bg-gray-50 p-6 rounded-lg hover:shadow-md transition-shadow animate-slide-up" style={{ animationDelay: '1.6s' }}>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Community Impact</h3>
                   <p className="text-gray-600">Strengthening ties with local organizations to create positive change and opportunities for our students and families.</p>
                 </div>
-                <div className="bg-blue-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold text-blue-800 mb-3">Professional Development</h3>
+                <div className="bg-gray-50 p-6 rounded-lg hover:shadow-md transition-shadow animate-slide-up" style={{ animationDelay: '1.8s' }}>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Professional Development</h3>
                   <p className="text-gray-600">Training and support for staff to improve teaching methods and student outcomes through collaborative partnerships.</p>
                 </div>
-                <div className="bg-blue-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold text-blue-800 mb-3">Student Opportunities</h3>
+                <div className="bg-gray-50 p-6 rounded-lg hover:shadow-md transition-shadow animate-slide-up" style={{ animationDelay: '2s' }}>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Student Opportunities</h3>
                   <p className="text-gray-600">Internships, mentorships, and real-world experiences that prepare students for future success.</p>
                 </div>
               </div>
