@@ -214,15 +214,15 @@ const Navigation = () => {
                       >
                         <div className="p-4">
                           {item.dropdown.map((dropdownItem) => (
-                            <a
+                            <Link
                               key={dropdownItem.name}
-                              href={dropdownItem.href}
+                              to={dropdownItem.href}
                               target={dropdownItem.external ? "_blank" : "_self"}
                               rel={dropdownItem.external ? "noopener noreferrer" : ""}
                               className="block py-3 px-4 text-sm font-medium text-primary hover:text-white hover:bg-gradient-to-r hover:from-primary hover:to-primary-hover rounded-lg transition-all duration-500 hover:scale-105 hover:shadow-lg transform hover:translate-x-1"
                             >
                               {dropdownItem.name}
-                            </a>
+                            </Link>
                           ))}
                         </div>
                       </div>
