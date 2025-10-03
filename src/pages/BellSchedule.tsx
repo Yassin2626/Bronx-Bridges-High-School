@@ -41,7 +41,6 @@ const BellSchedule = () => {
     <>
       <Navigation />
       <div className="min-h-screen bg-white mt-20">
-        {/* Hero Section */}
         <div className="bg-gradient-to-r from-gray-50 to-gray-200 text-gray-800 py-24 animate-fade-in">
           <div className="container mx-auto px-6 text-center">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gray-900 animate-slide-up">Bell Schedules</h1>
@@ -51,11 +50,8 @@ const BellSchedule = () => {
           </div>
         </div>
 
-        {/* Main Content */}
         <div className="container mx-auto px-6 py-16">
           <div className="max-w-6xl mx-auto">
-
-            {/* Regular Schedule */}
             <section className="mb-16 animate-fade-in" style={{ animationDelay: '0.4s' }}>
               <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center animate-slide-up" style={{ animationDelay: '0.6s' }}>Monday through Friday</h2>
               <div className="bg-gray-50 rounded-lg shadow-lg overflow-hidden animate-slide-up" style={{ animationDelay: '0.8s' }}>
@@ -86,7 +82,6 @@ const BellSchedule = () => {
               </div>
             </section>
 
-            {/* After School Schedule */}
             <section className="mb-16 animate-fade-in" style={{ animationDelay: '2s' }}>
               <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center animate-slide-up" style={{ animationDelay: '2.2s' }}>After School</h2>
               <div className="bg-gray-50 rounded-lg shadow-lg overflow-hidden animate-slide-up" style={{ animationDelay: '2.4s' }}>
@@ -116,12 +111,12 @@ const BellSchedule = () => {
                 </table>
               </div>
             </section>
-
           </div>
         </div>
       </div>
       <Footer />
     </>
+  );
 };
 
 export default BellSchedule;
