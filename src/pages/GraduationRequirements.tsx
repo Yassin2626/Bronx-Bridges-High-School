@@ -145,6 +145,7 @@ const GraduationRequirements = () => {
       </div>
       <Footer />
     </>
+  );
 };
 
 export default GraduationRequirements;
