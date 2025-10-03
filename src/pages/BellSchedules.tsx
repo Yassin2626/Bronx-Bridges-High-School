@@ -3,7 +3,7 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { Clock, Calendar } from 'lucide-react';
 
-const BellSchedule = () => {
+const BellSchedules = () => {
   const [visibleRows, setVisibleRows] = useState<number>(0);
   const totalRows = 10; // 9 periods + after school header
 
@@ -122,6 +122,7 @@ const BellSchedule = () => {
       </div>
       <Footer />
     </>
+  );
 };
 
-export default BellSchedule;
+export default BellSchedules;

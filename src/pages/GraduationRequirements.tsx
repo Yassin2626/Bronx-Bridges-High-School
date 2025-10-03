@@ -113,19 +113,19 @@ const GraduationRequirements = () => {
           <div className="max-w-6xl mx-auto">
 
             {/* NYC DOE Graduation Requirements */}
-            <section className="mb-16">
-              <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">NYC DOE Graduation Requirements</h2>
+            <section className="mb-16 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center animate-slide-up" style={{ animationDelay: '0.6s' }}>NYC DOE Graduation Requirements</h2>
 
               {/* Subject Area Requirements */}
-              <div className="mb-12">
-                <h3 className="text-2xl font-semibold text-gray-800 mb-6">Subject Area Requirements - Regents Diploma</h3>
+              <div className="mb-12 animate-slide-up" style={{ animationDelay: '0.8s' }}>
+                <h3 className="text-2xl font-semibold text-gray-800 mb-6 animate-slide-up" style={{ animationDelay: '1s' }}>Subject Area Requirements - Regents Diploma</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {subjectRequirements.map((req, index) => {
                     const IconComponent = req.icon;
                     return (
-                      <div key={index} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                      <div key={index} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow animate-fade-in" style={{ animationDelay: `${1.2 + index * 0.1}s` }}>
                         <div className="flex items-center mb-3">
-                          <IconComponent className="w-8 h-8 text-gray-600 mr-3" />
+                          <IconComponent className="w-8 h-8 text-gray-600 mr-3 animate-bounce" />
                           <h4 className="text-lg font-semibold text-gray-800">{req.subject}</h4>
                           {req.note && <span className="text-sm text-gray-500 ml-2">{req.note}</span>}
                         </div>
@@ -134,6 +134,7 @@ const GraduationRequirements = () => {
                     );
                   })}
                 </div>
+                <div className="mt-6 text-center animate-slide-up" style={{ animationDelay: '2.2s' }}>
                   <p className="text-xl font-bold text-gray-800">Total: 44 Credits</p>
                 </div>
               </div>
@@ -153,8 +154,6 @@ const GraduationRequirements = () => {
                     );
                   })}
                 </div>
-              </div>
-
               </div>
 
             </section>
@@ -192,7 +191,7 @@ const GraduationRequirements = () => {
                 <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-6 animate-slide-up" style={{ animationDelay: '6s' }}>
                   <div className="flex items-center animate-fade-in" style={{ animationDelay: '6.2s' }}>
                     <Mail className="w-5 h-5 text-gray-600 mr-2 animate-bounce" />
-                    <a href="mailto:solinger@bronxbridges.org" className="text-gray-600 hover:underline">
+                    <a href="mailto:solinger@bronxbridges.org" className="text-gray-600 hover:underline" target="_blank" rel="noopener noreferrer">
                       solinger@bronxbridges.org
                     </a>
                   </div>
@@ -205,7 +204,6 @@ const GraduationRequirements = () => {
                 </div>
               </div>
             </section>
-
           </div>
         </div>
       </div>
