@@ -1,7 +1,5 @@
 {
-  "name": "vite_react_shadcn_ts",
-  "private": true,
-  "version": "0.0.0",
+  "homepage": "https://Yasseen2626.github.io/bronx-bridges-high-school",
   "type": "module",
   "scripts": {
     "dev": "vite",
