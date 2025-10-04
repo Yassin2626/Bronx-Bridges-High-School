@@ -10,36 +10,28 @@ const StaffLinks = () => {
 
   const staffResources = [
     {
-      title: 'Staff Resources',
-      description: 'Access internal documents, forms, and school policies',
-      icon: BookOpen,
-      href: 'https://sites.google.com/a/bronxbridges.org/staff-resources/',
-      color: 'from-blue-600 to-blue-800',
-      hoverColor: 'hover:from-blue-500 hover:to-blue-700'
-    },
-    {
       title: 'Mail Staff Login',
       description: 'Access your school email account',
       icon: Mail,
       href: 'https://mail.google.com/a/bronxbridges.org',
-      color: 'from-green-600 to-green-800',
-      hoverColor: 'hover:from-green-500 hover:to-green-700'
+      color: 'from-blue-600 to-blue-800',
+      hoverColor: 'hover:from-blue-500 hover:to-blue-700'
     },
     {
       title: 'Atlas',
       description: 'NYC DOE student information system',
       icon: Settings,
       href: 'https://www.schools.nyc.gov/learning/digital-learning/atlas',
-      color: 'from-purple-600 to-purple-800',
-      hoverColor: 'hover:from-purple-500 hover:to-purple-700'
+      color: 'from-green-600 to-green-800',
+      hoverColor: 'hover:from-green-500 hover:to-green-700'
     },
     {
       title: 'DOE Helpdesk',
       description: 'Technical support and assistance',
       icon: HelpCircle,
       href: 'https://www.schools.nyc.gov/learning/digital-learning/atlas',
-      color: 'from-orange-600 to-orange-800',
-      hoverColor: 'hover:from-orange-500 hover:to-orange-700'
+      color: 'from-purple-600 to-purple-800',
+      hoverColor: 'hover:from-purple-500 hover:to-purple-700'
     }
   ];
 
@@ -66,34 +58,28 @@ const StaffLinks = () => {
       <div className="min-h-screen bg-white mt-20">
         <section
           ref={sectionRef}
-          className="py-20 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden"
+          className="py-20 bg-white relative"
         >
-          {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,_theme(colors.gray.800),_transparent_50%)] opacity-20"></div>
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,_theme(colors.gray.700),_transparent_50%)] opacity-20"></div>
-          </div>
-
           <div className="container mx-auto px-6 relative z-10">
             {/* Section Header */}
             <div className="text-center mb-16 animate-slide-up">
-              <h1 className="text-5xl font-bold text-white mb-6 bg-gradient-to-br from-white to-gray-300 bg-clip-text text-transparent">
+              <h1 className="text-5xl font-bold text-gray-900 mb-6">
                 Staff Resources
               </h1>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Essential tools and resources for Bronx Bridges High School faculty and staff
               </p>
             </div>
 
             {/* Resources Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {staffResources.map((resource, index) => {
                 const IconComponent = resource.icon;
 
                 return (
                   <div
                     key={resource.title}
-                    className={`bg-gradient-to-br ${resource.color} backdrop-blur-md rounded-2xl p-8 border-2 border-gray-700 hover:border-gray-500 hover:shadow-2xl hover:shadow-black/50 transition-all duration-700 group hover:scale-105 cursor-pointer`}
+                    className="bg-gradient-to-br from-black via-gray-800 to-gray-700 backdrop-blur-md rounded-2xl p-8 border-4 border-black hover:border-gray-900 hover:shadow-2xl hover:shadow-black/50 transition-all duration-700 group hover:scale-105 cursor-pointer"
                     style={{
                       animationDelay: `${index * 0.15}s`,
                     }}
@@ -116,10 +102,10 @@ const StaffLinks = () => {
 
                       {/* Content */}
                       <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-white mb-4 bg-gradient-to-br from-white to-gray-200 bg-clip-text text-transparent">
+                        <h3 className="text-2xl font-bold text-white mb-4 bg-gradient-to-br from-white to-gray-300 bg-clip-text text-transparent">
                           {resource.title}
                         </h3>
-                        <p className="text-gray-200 leading-relaxed mb-6">
+                        <p className="text-white/80 leading-relaxed mb-6 bg-gradient-to-br from-white/80 to-gray-300/80 bg-clip-text text-transparent">
                           {resource.description}
                         </p>
                       </div>
@@ -141,14 +127,11 @@ const StaffLinks = () => {
 
             {/* Additional Info */}
             <div className="mt-16 text-center animate-slide-up" style={{ animationDelay: '0.8s' }}>
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-gray-700 max-w-3xl mx-auto">
-                <h3 className="text-xl font-bold text-white mb-4">Need Help?</h3>
-                <p className="text-gray-300 mb-4">
+              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200 max-w-3xl mx-auto">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Need Help?</h3>
+                <p className="text-gray-600 mb-4">
                   For technical support or access issues, please contact the IT department or your administrator.
                 </p>
-                <div className="flex justify-center space-x-4 text-sm text-gray-400">
-                  <span>• Secure external links open in new tabs</span>
-                </div>
               </div>
             </div>
           </div>
