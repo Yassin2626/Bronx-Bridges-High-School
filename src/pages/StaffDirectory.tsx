@@ -23,7 +23,8 @@ const StaffDirectory = () => {
       {
         name: 'Mrs. Nelsie Castillo',
         position: 'Principal',
-        photo: '/placeholder-staff.jpg',
+        photo: '/src/assets/Principal.jpg',
+        phone: '(718) 829-2984',
         section: 'administration'
       },
       {
@@ -384,8 +385,8 @@ const StaffDirectory = () => {
                 <div className="bg-white rounded-2xl p-6 border-2 border-gray-200">
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                        <Search className="w-6 h-6 text-blue-600" />
+                      <div className="w-12 h-12 bg-gray-100 border-2 border-gray-300 rounded-full flex items-center justify-center">
+                        <Search className="w-6 h-6 text-gray-700" />
                       </div>
                       <div>
                         <h2 className="text-2xl font-bold text-gray-900">Search Results</h2>
@@ -416,9 +417,14 @@ const StaffDirectory = () => {
                             <h3 className="text-lg font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors duration-300 bg-gradient-to-br from-white to-gray-300 bg-clip-text text-transparent">
                               {staff.name}
                             </h3>
-                            <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300 bg-gradient-to-br from-gray-300 to-gray-400 bg-clip-text text-transparent">
+                            <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300 bg-gradient-to-br from-gray-300 to-gray-400 bg-clip-text text-transparent mb-2">
                               {staff.position}
                             </p>
+                            {staff.phone && (
+                              <p className="text-gray-400 text-xs bg-gradient-to-br from-gray-400 to-gray-500 bg-clip-text text-transparent">
+                                Phone: {staff.phone}
+                              </p>
+                            )}
                           </div>
                         </div>
                       ))}
@@ -444,13 +450,6 @@ const StaffDirectory = () => {
               const isExpanded = expandedSections[sectionKey];
               const sectionColor = sectionColors[sectionKey as keyof typeof sectionColors];
               const sectionTitle = sectionTitles[sectionKey as keyof typeof sectionTitles];
-
-              if (searchTerm && !staffList.some(staff =>
-                staff.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                staff.position.toLowerCase().includes(searchTerm.toLowerCase())
-              )) {
-                return null;
-              }
 
               return (
                 <div key={sectionKey} className="mb-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
@@ -497,9 +496,14 @@ const StaffDirectory = () => {
                             <h3 className="text-lg font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors duration-300 bg-gradient-to-br from-white to-gray-300 bg-clip-text text-transparent">
                               {staff.name}
                             </h3>
-                            <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300 bg-gradient-to-br from-gray-300 to-gray-400 bg-clip-text text-transparent">
+                            <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300 bg-gradient-to-br from-gray-300 to-gray-400 bg-clip-text text-transparent mb-2">
                               {staff.position}
                             </p>
+                            {staff.phone && (
+                              <p className="text-gray-400 text-xs bg-gradient-to-br from-gray-400 to-gray-500 bg-clip-text text-transparent">
+                                Phone: {staff.phone}
+                              </p>
+                            )}
                           </div>
                         </div>
                       ))}
@@ -508,19 +512,6 @@ const StaffDirectory = () => {
                 </div>
               );
             })}
-
-            {/* No Results */}
-            {searchTerm && filteredStaff.length === 0 && (
-              <div className="text-center py-12 animate-fade-in">
-                <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200 max-w-md mx-auto">
-                  <Search className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">No Results Found</h3>
-                  <p className="text-gray-600">
-                    Try adjusting your search terms or browse by section
-                  </p>
-                </div>
-              </div>
-            )}
           </div>
         </section>
       </div>
