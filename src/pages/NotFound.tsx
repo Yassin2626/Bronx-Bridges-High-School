@@ -57,7 +57,6 @@ const NotFound = () => {
 
             {/* Pulsing Ring */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <div className="w-32 h-32 border-2 border-white/30 rounded-full animate-ping absolute"></div>
             </div>
           </div>
 
@@ -65,9 +64,6 @@ const NotFound = () => {
           <div className="mb-12 space-y-6">
             <div className="relative">
               <AlertCircle className="w-16 h-16 text-white/80 mx-auto mb-4 animate-bounce" />
-              <div className="absolute inset-0 w-16 h-16 mx-auto">
-                <div className="w-full h-full border-2 border-white/20 rounded-full animate-spin absolute"></div>
-              </div>
             </div>
 
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
