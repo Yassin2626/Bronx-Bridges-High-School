@@ -99,10 +99,10 @@ const GraduationRequirements = () => {
       <Navigation />
       <div className="min-h-screen bg-white mt-20">
         {/* Hero Section */}
-        <div className="bg-gradient-to-r from-gray-50 to-gray-200 text-gray-800 py-24">
+        <div className="bg-gradient-to-r from-gray-50 to-gray-100 text-gray-800 py-24">
           <div className="container mx-auto px-6 text-center">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gray-900">Graduation Requirements</h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-700">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gray-900 animate-fade-in">Graduation Requirements</h1>
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-700 animate-fade-in" style={{ animationDelay: '0.2s' }}>
               Essential information for meeting NYC DOE graduation standards
             </p>
           </div>
