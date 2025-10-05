@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { ArrowLeft, Phone, Mail, User } from 'lucide-react';
+import { ArrowLeft, Phone, Mail, User, AlertCircle, Search } from 'lucide-react';
 import { allStaff } from '../data/staffData';
 
 const TeacherDetail = () => {
@@ -21,18 +21,68 @@ const TeacherDetail = () => {
     return (
       <>
         <Navigation />
-        <div className="min-h-screen bg-white mt-20 flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Staff Member Not Found</h1>
-            <p className="text-gray-600 mb-8">The requested staff member could not be found.</p>
-            <button
-              onClick={() => navigate('/staff-directory')}
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg group"
-            >
-              <span className="transition-all duration-500 ease-in-out group-hover:underline decoration-2 underline-offset-4">
-                Back to Staff Directory
-              </span>
-            </button>
+        <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black relative">
+          <div className="relative z-10 min-h-screen flex items-center justify-center px-6 transition-all duration-1000">
+            <div className="text-center max-w-2xl mx-auto">
+              {/* Large 404 Text */}
+              <div className="relative mb-8">
+                <h1 className="text-8xl md:text-9xl font-bold text-white relative">
+                  404
+                  <div className="absolute inset-0 text-white/20 blur-xl transition-all duration-200" style={{filter: 'blur(2.8px)', transform: 'scale(1.028)'}}>
+                    404
+                  </div>
+                </h1>
+              </div>
+
+              {/* Alert Icon */}
+              <div className="relative mb-12">
+                <AlertCircle className="w-16 h-16 text-white/80 mx-auto mb-4 animate-bounce" />
+              </div>
+
+              {/* Main Content */}
+              <div className="mb-12 space-y-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                  Staff Member Not Found
+                </h2>
+                <p className="text-xl text-gray-300 leading-relaxed max-w-lg mx-auto">
+                  We couldn't find the staff member you're looking for.
+                </p>
+
+                {/* Decorative Elements */}
+                <div className="flex items-center justify-center space-x-4 my-8">
+                  <div className="w-16 h-px bg-gradient-to-r from-transparent to-white/30"></div>
+                  <div className="w-3 h-3 bg-white/50 rounded-full animate-pulse"></div>
+                  <div className="w-16 h-px bg-gradient-to-l from-transparent to-white/30"></div>
+                </div>
+              </div>
+
+              {/* Action Button */}
+              <div className="flex justify-center">
+                <button
+                  onClick={() => navigate('/staff-directory')}
+                  className="group relative bg-white text-black px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-white/20 flex items-center space-x-3"
+                >
+                  <ArrowLeft className="w-6 h-6 transition-transform duration-300 group-hover:-translate-x-1" />
+                  <span>Back to Staff Directory</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                </button>
+              </div>
+
+              {/* Helpful Information */}
+              <div className="mt-16 text-center">
+                <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 max-w-md mx-auto">
+                  <Search className="w-8 h-8 text-white/60 mx-auto mb-3" />
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    If you believe this staff member should exist, please contact the site administrator.
+                  </p>
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="mt-12 text-center">
+                <p className="text-gray-400 text-sm">Bronx Bridges High School</p>
+              </div>
+            </div>
           </div>
         </div>
         <Footer />
