@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import {
@@ -18,24 +18,11 @@ import {
 
 const ProspectiveStaff = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !isVisible) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [isVisible]);
+    // Auto-load all sections immediately
+    setIsVisible(true);
+  }, []);
 
   const benefits = [
     "Non evaluative feedback and on-spot coaching from school leadership",
@@ -73,10 +60,7 @@ const ProspectiveStaff = () => {
           </div>
         </section>
 
-        <section
-          ref={sectionRef}
-          className="py-20 bg-white relative"
-        >
+        <section className="py-20 bg-white relative">
           <div className="container mx-auto px-6 relative z-10">
             {/* Who Are We Section */}
             <div className={`mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -100,7 +84,8 @@ const ProspectiveStaff = () => {
                       We provide an academically rigorous and intellectually challenging experience to ensure ALL students are in a position to positively impact their community and access opportunities in the broader society.
                     </p>
                     <p className="font-medium">
-                      Our graduates are prepared to meet the challenging demands of a university education and ready to succeed in the 21st century workplace
+                      Our graduates are prepared to meet the challe
+                      nging demands of a university education and ready to succeed in the 21st century workplace
                     </p>
                   </div>
                 </div>
