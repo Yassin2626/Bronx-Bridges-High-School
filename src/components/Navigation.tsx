@@ -1,16 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { ChevronDown, Search, X } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { ChevronDown } from 'lucide-react';
 import logo from '@/assets/logo.png';
 import headerName from '@/assets/header_name.png';
 
 const Navigation = () => {
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>('Faculty');
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
-  const searchInputRef = useRef<HTMLInputElement>(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,34 +16,6 @@ const Navigation = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Keyboard shortcut for search (Ctrl+K)
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.ctrlKey && e.key === 'k') {
-        e.preventDefault();
-        setIsSearchOpen(true);
-        setTimeout(() => searchInputRef.current?.focus(), 100);
-      }
-      if (e.key === 'Escape' && isSearchOpen) {
-        setIsSearchOpen(false);
-        setSearchQuery('');
-      }
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [isSearchOpen]);
-
-  // Search functionality
-  const handleSearch = (query: string) => {
-    if (query.trim()) {
-      // Navigate to search results or implement search logic
-      navigate(`/search?q=${encodeURIComponent(query.trim())}`);
-      setIsSearchOpen(false);
-      setSearchQuery('');
-    }
-  };
 
   const navigationItems = [
     { name: 'Home', href: '/' },
@@ -185,56 +153,6 @@ const Navigation = () => {
                   )}
                 </div>
               ))}
-
-              {/* Search Button - Right side */}
-              <div className="relative">
-                <button
-                  onClick={() => setIsSearchOpen(true)}
-                  className="flex items-center space-x-2 bg-gradient-to-r from-black via-gray-800 to-gray-700 hover:from-gray-800 hover:via-gray-700 hover:to-black text-white px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg border border-gray-600 hover:border-gray-500"
-                >
-                  <Search className="w-4 h-4" />
-                  <span className="text-sm font-medium hidden xl:block">Search</span>
-                  <kbd className="hidden lg:block text-xs bg-gray-600 px-2 py-1 rounded text-gray-300">Ctrl+K</kbd>
-                </button>
-
-                {/* Search Modal */}
-                {isSearchOpen && (
-                  <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center">
-                    <div className="bg-gradient-to-br from-black via-gray-800 to-gray-700 border border-gray-600 rounded-xl p-6 w-full max-w-md mx-4 shadow-2xl">
-                      <div className="flex items-center justify-between mb-4">
-                        <h3 className="text-lg font-semibold text-white">Search</h3>
-                        <button
-                          onClick={() => setIsSearchOpen(false)}
-                          className="text-gray-400 hover:text-white transition-colors"
-                        >
-                          <X className="w-5 h-5" />
-                        </button>
-                      </div>
-                      <div className="flex items-center space-x-3">
-                        <input
-                          ref={searchInputRef}
-                          type="text"
-                          placeholder="Search pages, staff, content..."
-                          value={searchQuery}
-                          onChange={(e) => setSearchQuery(e.target.value)}
-                          onKeyDown={(e) => {
-                            if (e.key === 'Enter') {
-                              handleSearch(searchQuery);
-                            }
-                          }}
-                          className="flex-1 bg-gray-900/50 border border-gray-600 rounded-lg px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        />
-                        <button
-                          onClick={() => handleSearch(searchQuery)}
-                          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors font-medium"
-                        >
-                          Search
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
             </div>
 
             {/* Mobile Menu Button - Right side */}
@@ -311,55 +229,6 @@ const Navigation = () => {
                     )}
                   </div>
                 ))}
-
-                {/* Search Button - Small Navbar */}
-                <div className="relative">
-                  <button
-                    onClick={() => setIsSearchOpen(true)}
-                    className="flex items-center space-x-2 bg-gradient-to-r from-black via-gray-800 to-gray-700 hover:from-gray-800 hover:via-gray-700 hover:to-black text-white px-3 py-1.5 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg border border-gray-600 hover:border-gray-500"
-                  >
-                    <Search className="w-4 h-4" />
-                    <kbd className="hidden md:block text-xs bg-gray-600 px-1.5 py-0.5 rounded text-gray-300">Ctrl+K</kbd>
-                  </button>
-
-                  {/* Search Modal - Same as above */}
-                  {isSearchOpen && (
-                    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center">
-                      <div className="bg-gradient-to-br from-black via-gray-800 to-gray-700 border border-gray-600 rounded-xl p-6 w-full max-w-md mx-4 shadow-2xl">
-                        <div className="flex items-center justify-between mb-4">
-                          <h3 className="text-lg font-semibold text-white">Search</h3>
-                          <button
-                            onClick={() => setIsSearchOpen(false)}
-                            className="text-gray-400 hover:text-white transition-colors"
-                          >
-                            <X className="w-5 h-5" />
-                          </button>
-                        </div>
-                        <div className="flex items-center space-x-3">
-                          <input
-                            ref={searchInputRef}
-                            type="text"
-                            placeholder="Search pages, staff, content..."
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            onKeyDown={(e) => {
-                              if (e.key === 'Enter') {
-                                handleSearch(searchQuery);
-                              }
-                            }}
-                            className="flex-1 bg-gray-900/50 border border-gray-600 rounded-lg px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          />
-                          <button
-                            onClick={() => handleSearch(searchQuery)}
-                            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors font-medium"
-                          >
-                            Search
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
               </div>
               <div className="lg:hidden">
                 <button className="text-primary hover:text-primary-hover">
