@@ -7,6 +7,7 @@ import headerName from '@/assets/header_name.png';
 const Navigation = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -155,13 +156,11 @@ const Navigation = () => {
               ))}
             </div>
 
-            {/* Mobile Menu Button - Right side */}
-            <div className="lg:hidden">
-              <button className="text-primary hover:text-primary-hover">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              </button>
+            {/* Ctrl+K Search Indicator - Right side */}
+            <div className="hidden lg:flex items-center space-x-2 text-primary/70 hover:text-primary transition-colors cursor-pointer" onClick={() => window.location.href = '/staff-directory'}>
+              <kbd className="px-2 py-1 text-xs bg-primary/10 border border-primary/20 rounded">Ctrl</kbd>
+              <span className="text-sm">+</span>
+              <kbd className="px-2 py-1 text-xs bg-primary/10 border border-primary/20 rounded">K</kbd>
             </div>
           </div>
         </div>

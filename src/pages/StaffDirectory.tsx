@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import ControlK from '@/assets/Control_K.png';
 import { Search, User, GraduationCap, Users, Award, Heart, ChevronDown, ChevronUp } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { allStaff } from '../data/staffData';
@@ -16,6 +17,7 @@ const StaffDirectory = () => {
     youthDevelopment: false
   });
   const [filteredStaff, setFilteredStaff] = useState<any[]>([]);
+  const searchInputRef = useRef<HTMLInputElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
@@ -44,21 +46,16 @@ const StaffDirectory = () => {
   };
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !isVisible) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.ctrlKey && event.key === 'k') {
+        event.preventDefault();
+        searchInputRef.current?.focus();
+      }
+    };
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [isVisible]);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   useEffect(() => {
     const filtered = Object.values(allStaff).flat().filter(staff =>
@@ -98,11 +95,19 @@ const StaffDirectory = () => {
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                   <input
+                    ref={searchInputRef}
                     type="text"
                     placeholder="Search by name or position..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full pl-10 pr-16 py-3 bg-gray-50 border border-gray-300 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                  <img
+                    src={ControlK}
+                    alt="Ctrl+K"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 w-8 h-8 opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
+                    onClick={() => searchInputRef.current?.focus()}
+                    title="Press Ctrl+K to search"
                   />
                 </div>
               </div>
