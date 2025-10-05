@@ -64,11 +64,11 @@ const TeacherDetail = () => {
                         <img
                           src={
                             teacher.name === 'Mrs. Nelsie Castillo' 
-                              ? '/src/assets/Nelsie_Castillo.jpg'
+                              ? '/src/assets/Administration/Nelsie_Castillo.jpg'
                               : teacher.name === 'Mr. Jerrick Rutherford'
-                              ? '/src/assets/Jerrick_Rutherford.jpg'
+                              ? '/src/assets/Administration/Jerrick_Rutherford.jpg'
                               : teacher.name === 'Ms. Ruth Serels'
-                              ? '/src/assets/Ruth_Serels.jpg'
+                              ? '/src/assets/Administration/Ruth_Serels.jpg'
                               : teacher.photo
                           }
                           alt={teacher.name}
