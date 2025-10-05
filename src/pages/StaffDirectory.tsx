@@ -23,20 +23,20 @@ const StaffDirectory = () => {
       {
         name: 'Mrs. Nelsie Castillo',
         position: 'Principal',
-        photo: '/src/assets/Principal.jpg',
+        photo: '/src/assets/Nelsie_Castillo.jpg',
         phone: '(718) 829-2984',
         section: 'administration'
       },
       {
         name: 'Mr. Jerrick Rutherford',
         position: 'Assistant Principal',
-        photo: '/placeholder-staff.jpg',
+        photo: '/src/assets/Jerrick_Rutherford.jpg',
         section: 'administration'
       },
       {
         name: 'Ms. Ruth Serels',
         position: 'Assistant Principal',
-        photo: '/placeholder-staff.jpg',
+        photo: '/src/assets/Ruth_Serels.jpg',
         section: 'administration'
       }
     ],
@@ -408,23 +408,26 @@ const StaffDirectory = () => {
                           onClick={() => navigate(`/staff-directory/${staff.name.toLowerCase().replace(/^(mr|mrs|ms|dr)\s+|\s+(jr|sr|ii|iii|iv)$/gi, '').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`)}
                         >
                           <div className="text-center">
-                            {/* Staff Photo Placeholder */}
-                            <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-gray-600 to-gray-800 rounded-full flex items-center justify-center border-2 border-white/20 group-hover:border-white/40 transition-all duration-300">
-                              <User className="w-10 h-10 text-white/80" />
+                            {/* Staff Photo */}
+                            <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-gray-600 to-gray-800 rounded-full flex items-center justify-center border-2 border-white/20 group-hover:border-white/40 transition-all duration-300 overflow-hidden">
+                              {staff.photo && staff.photo !== '/placeholder-staff.jpg' ? (
+                                <img
+                                  src={staff.photo}
+                                  alt={staff.name}
+                                  className="w-full h-full object-cover"
+                                />
+                              ) : (
+                                <User className="w-10 h-10 text-white/80" />
+                              )}
                             </div>
 
                             {/* Staff Info */}
                             <h3 className="text-lg font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors duration-300 bg-gradient-to-br from-white to-gray-300 bg-clip-text text-transparent">
                               {staff.name}
                             </h3>
-                            <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300 bg-gradient-to-br from-gray-300 to-gray-400 bg-clip-text text-transparent mb-2">
+                            <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300 bg-gradient-to-br from-gray-300 to-gray-400 bg-clip-text text-transparent">
                               {staff.position}
                             </p>
-                            {staff.phone && (
-                              <p className="text-gray-400 text-xs bg-gradient-to-br from-gray-400 to-gray-500 bg-clip-text text-transparent">
-                                Phone: {staff.phone}
-                              </p>
-                            )}
                           </div>
                         </div>
                       ))}
@@ -487,23 +490,26 @@ const StaffDirectory = () => {
                           onClick={() => navigate(`/staff-directory/${staff.name.toLowerCase().replace(/^(mr|mrs|ms|dr)\s+|\s+(jr|sr|ii|iii|iv)$/gi, '').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`)}
                         >
                           <div className="text-center">
-                            {/* Staff Photo Placeholder */}
-                            <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-gray-600 to-gray-800 rounded-full flex items-center justify-center border-2 border-white/20 group-hover:border-white/40 transition-all duration-300">
-                              <User className="w-10 h-10 text-white/80" />
+                            {/* Staff Photo */}
+                            <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-gray-600 to-gray-800 rounded-full flex items-center justify-center border-2 border-white/20 group-hover:border-white/40 transition-all duration-300 overflow-hidden">
+                              {staff.photo && staff.photo !== '/placeholder-staff.jpg' ? (
+                                <img
+                                  src={staff.photo}
+                                  alt={staff.name}
+                                  className="w-full h-full object-cover"
+                                />
+                              ) : (
+                                <User className="w-10 h-10 text-white/80" />
+                              )}
                             </div>
 
                             {/* Staff Info */}
                             <h3 className="text-lg font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors duration-300 bg-gradient-to-br from-white to-gray-300 bg-clip-text text-transparent">
                               {staff.name}
                             </h3>
-                            <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300 bg-gradient-to-br from-gray-300 to-gray-400 bg-clip-text text-transparent mb-2">
+                            <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300 bg-gradient-to-br from-gray-300 to-gray-400 bg-clip-text text-transparent">
                               {staff.position}
                             </p>
-                            {staff.phone && (
-                              <p className="text-gray-400 text-xs bg-gradient-to-br from-gray-400 to-gray-500 bg-clip-text text-transparent">
-                                Phone: {staff.phone}
-                              </p>
-                            )}
                           </div>
                         </div>
                       ))}

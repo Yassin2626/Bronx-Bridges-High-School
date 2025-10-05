@@ -17,6 +17,7 @@ import BellSchedule from "./pages/BellSchedule";
 import CollegeCareerPreparation from "./pages/CollegeCareerPreparation";
 import StudentEmail from "./pages/StudentEmail";
 import StaffDirectory from "./pages/StaffDirectory";
+import TeacherDetail from "./pages/TeacherDetail";
 import StaffLinks from "./pages/StaffLinks";
 import Login from "./pages/Login";
 import SchoolCalendar from "./pages/SchoolCalendar";
@@ -70,6 +71,7 @@ const App = () => (
           <Route path="/college-career-preparation" element={<CollegeCareerPreparation />} />
           <Route path="/student-email" element={<StudentEmail />} />
           <Route path="/staff-directory" element={<StaffDirectory />} />
+          <Route path="/staff-directory/:teacherName" element={<TeacherDetail />} />
           <Route path="/staff-links" element={<StaffLinks />} />
           <Route path="/login" element={<Login />} />
           <Route path="/school-calendar" element={<SchoolCalendar />} />
