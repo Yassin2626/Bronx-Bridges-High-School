@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 import logo from '@/assets/logo.png';
 import headerName from '@/assets/header_name.png';
+import ControlK from '@/assets/Control_K.png';
 
 const Navigation = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>('Faculty');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isControlKPressed, setIsControlKPressed] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -155,6 +157,16 @@ const Navigation = () => {
               ))}
             </div>
 
+            {/* Ctrl+K Search Shortcut Indicator */}
+            <div className="hidden lg:flex items-center space-x-2 px-3 py-1 bg-gradient-to-r from-primary via-primary-hover to-primary rounded-full border border-white/20">
+              <img
+                src={ControlK}
+                alt="Ctrl+K"
+                className="w-4 h-4"
+              />
+              <span className="text-xs font-medium text-white">Search</span>
+            </div>
+
             {/* Mobile Menu Button - Right side */}
             <div className="lg:hidden">
               <button className="text-primary hover:text-primary-hover">
@@ -230,6 +242,17 @@ const Navigation = () => {
                   </div>
                 ))}
               </div>
+
+              {/* Ctrl+K Search Shortcut Indicator */}
+              <div className="hidden lg:flex items-center space-x-2 px-2 py-1 bg-gradient-to-r from-primary via-primary-hover to-primary rounded-full border border-white/20">
+                <img
+                  src={ControlK}
+                  alt="Ctrl+K"
+                  className="w-3 h-3"
+                />
+                <span className="text-xs font-medium text-white">Ctrl+K</span>
+              </div>
+
               <div className="lg:hidden">
                 <button className="text-primary hover:text-primary-hover">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -244,5 +267,4 @@ const Navigation = () => {
     </nav>
   );
 };
-
 export default Navigation;
