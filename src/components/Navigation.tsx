@@ -58,7 +58,6 @@ const Navigation = () => {
       dropdown: [
         { name: 'School Calendar', href: '/school-calendar' },
         { name: 'Student Rules and Expectations', href: '/student-rules-expectations' },
-        { name: 'College Readiness', href: '/college-readiness' },
         { name: 'PTA and Resources', href: '/pta-resources' },
         { name: 'Programs', href: '/programs' },
         { name: 'Parent Coordinator', href: '/parent-coordinator' },
