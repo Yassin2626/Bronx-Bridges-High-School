@@ -27,9 +27,11 @@ const TeacherDetail = () => {
             <p className="text-gray-600 mb-8">The requested staff member could not be found.</p>
             <button
               onClick={() => navigate('/staff-directory')}
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg group"
             >
-              Back to Staff Directory
+              <span className="transition-all duration-500 ease-in-out group-hover:underline decoration-2 underline-offset-4">
+                Back to Staff Directory
+              </span>
             </button>
           </div>
         </div>
@@ -47,10 +49,12 @@ const TeacherDetail = () => {
             {/* Back Button */}
             <button
               onClick={() => navigate('/staff-directory')}
-              className="inline-flex items-center text-gray-700 hover:text-gray-900 mb-8 transition-colors"
+              className="inline-flex items-center text-gray-700 hover:text-gray-900 mb-8 transition-all duration-500 ease-in-out transform hover:scale-105 hover:-translate-x-2 group"
             >
-              <ArrowLeft className="w-5 h-5 mr-2" />
-              Back to Staff Directory
+              <ArrowLeft className="w-5 h-5 mr-2 transition-all duration-500 ease-in-out group-hover:-translate-x-1" />
+              <span className="transition-all duration-500 ease-in-out group-hover:underline decoration-2 underline-offset-4">
+                Back to Staff Directory
+              </span>
             </button>
 
             {/* Teacher Profile */}
