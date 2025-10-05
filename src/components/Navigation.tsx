@@ -121,14 +121,23 @@ const Navigation = () => {
                   onMouseEnter={() => setActiveDropdown(item.name)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <div
-                    className="flex items-center space-x-1 font-bold text-primary hover:text-primary-hover transition-all duration-700 px-3 py-2 rounded-lg hover:bg-white/5 cursor-pointer"
-                    onMouseEnter={() => setActiveDropdown(item.name)}
-                    onMouseLeave={() => setActiveDropdown(null)}
-                  >
-                    <span className="transition-all duration-700">{item.name}</span>
-                    {item.dropdown && <ChevronDown className="w-4 h-4 transition-transform duration-300 rotate-180 hover:rotate-0" />}
-                  </div>
+                  {item.name === 'Home' ? (
+                    <Link
+                      to={item.href}
+                      className="flex items-center space-x-1 font-bold text-primary hover:text-primary-hover transition-all duration-700 px-3 py-2 rounded-lg hover:bg-white/5"
+                    >
+                      <span className="transition-all duration-700">{item.name}</span>
+                    </Link>
+                  ) : (
+                    <div
+                      className="flex items-center space-x-1 font-bold text-primary hover:text-primary-hover transition-all duration-700 px-3 py-2 rounded-lg hover:bg-white/5 cursor-pointer"
+                      onMouseEnter={() => setActiveDropdown(item.name)}
+                      onMouseLeave={() => setActiveDropdown(null)}
+                    >
+                      <span className="transition-all duration-700">{item.name}</span>
+                      {item.dropdown && <ChevronDown className="w-4 h-4 transition-transform duration-300 rotate-180 hover:rotate-0" />}
+                    </div>
+                  )}
 
                   {item.dropdown && (
                     <div
@@ -188,14 +197,23 @@ const Navigation = () => {
                     onMouseEnter={() => setActiveDropdown(item.name)}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <div
-                      className="flex items-center space-x-1 font-bold text-primary hover:text-primary-hover transition-all duration-500 cursor-pointer"
-                      onMouseEnter={() => setActiveDropdown(item.name)}
-                      onMouseLeave={() => setActiveDropdown(null)}
-                    >
-                      <span className="transition-all duration-500">{item.name}</span>
-                      {item.dropdown && <ChevronDown className="w-4 h-4 transition-transform duration-300 rotate-180 hover:rotate-0" />}
-                    </div>
+                    {item.name === 'Home' ? (
+                      <Link
+                        to={item.href}
+                        className="flex items-center space-x-1 font-bold text-primary hover:text-primary-hover transition-all duration-500"
+                      >
+                        <span className="transition-all duration-500">{item.name}</span>
+                      </Link>
+                    ) : (
+                      <div
+                        className="flex items-center space-x-1 font-bold text-primary hover:text-primary-hover transition-all duration-500 cursor-pointer"
+                        onMouseEnter={() => setActiveDropdown(item.name)}
+                        onMouseLeave={() => setActiveDropdown(null)}
+                      >
+                        <span className="transition-all duration-500">{item.name}</span>
+                        {item.dropdown && <ChevronDown className="w-4 h-4 transition-transform duration-300 rotate-180 hover:rotate-0" />}
+                      </div>
+                    )}
 
                     {item.dropdown && (
                       <div
