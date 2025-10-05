@@ -252,26 +252,8 @@ const ProspectiveStudents = () => {
                         >
                           ceballos@bronxbridges.org
                         </a>
-                        <p className="text-gray-600">
-                          <a
-                            href="tel:+17188292984,13244"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-gray-600 hover:text-yellow-600 underline transition-colors duration-300"
-                          >
-                            (718) 829-2984 ext. 13244
-                          </a>
-                        </p>
-                        <p className="text-gray-600">
-                          Fax: <a
-                            href="tel:+17188292987"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-gray-600 hover:text-yellow-600 underline transition-colors duration-300"
-                          >
-                            (718) 829-2987
-                          </a>
-                        </p>
+                        <p className="text-gray-600">(718) 829-2984 ext. 13244</p>
+                        <p className="text-gray-600">Fax: (718) 829-2987</p>
                       </div>
                     </div>
                   </div>
@@ -282,16 +264,7 @@ const ProspectiveStudents = () => {
                         <MapPin className="w-5 h-5 text-gray-600 mt-1 flex-shrink-0" />
                         <div>
                           <p className="text-gray-800">1230 Zerega Avenue, Bronx, NY 10462</p>
-                          <p className="text-gray-600">
-                            Phone: <a
-                              href="tel:+17188287546"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-gray-600 hover:text-yellow-600 underline transition-colors duration-300"
-                            >
-                              (718) 828-7546
-                            </a>
-                          </p>
+                          <p className="text-gray-600">Phone: (718) 828-7546</p>
                           <a
                             href="mailto:ZeregaFWC@schools.nyc.gov"
                             target="_blank"
