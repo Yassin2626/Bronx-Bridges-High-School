@@ -42,12 +42,12 @@ const TeacherDetail = () => {
     <>
       <Navigation />
       <div className="min-h-screen bg-white mt-20">
-        <div className="bg-gradient-to-br from-black via-gray-900 to-black py-24">
+        <div className="bg-white py-24">
           <div className="container mx-auto px-6">
             {/* Back Button */}
             <button
               onClick={() => navigate('/staff-directory')}
-              className="inline-flex items-center text-white/80 hover:text-white mb-8 transition-colors"
+              className="inline-flex items-center text-gray-700 hover:text-gray-900 mb-8 transition-colors"
             >
               <ArrowLeft className="w-5 h-5 mr-2" />
               Back to Staff Directory
@@ -55,7 +55,7 @@ const TeacherDetail = () => {
 
             {/* Teacher Profile */}
             <div className="max-w-4xl mx-auto">
-              <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
+              <div className="bg-gradient-to-br from-black via-gray-800 to-gray-700 rounded-3xl p-8 border-4 border-black hover:border-gray-900 hover:shadow-2xl hover:shadow-black/50 transition-all duration-700">
                 <div className="flex flex-col md:flex-row items-center gap-8">
                   {/* Teacher Photo */}
                   <div className="flex-shrink-0">
@@ -111,7 +111,7 @@ const TeacherDetail = () => {
               </div>
 
               {/* Additional Information Section */}
-              <div className="mt-8 bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10">
+              <div className="mt-8 bg-gradient-to-br from-black via-gray-800 to-gray-700 rounded-2xl p-8 border-4 border-black hover:border-gray-900 hover:shadow-2xl hover:shadow-black/50 transition-all duration-700">
                 <h3 className="text-2xl font-bold text-white mb-6">About</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>

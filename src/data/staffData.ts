@@ -11,8 +11,8 @@ export interface StaffMember {
 export interface AllStaffData {
   administration: StaffMember[];
   teachers: StaffMember[];
-  paraprofessionals: StaffMember[];
   staff: StaffMember[];
+  paraprofessionals: StaffMember[];
   youthDevelopment: StaffMember[];
 }
 
@@ -246,24 +246,6 @@ export const allStaff: AllStaffData = {
       expertise: 'Instructional coaching, teacher professional development, curriculum design, data-driven instruction, classroom management, differentiated instruction, and educational leadership.'
     },
   ],
-  paraprofessionals: [
-    {
-      name: 'Mr. Pinak Goswami',
-      position: 'Paraprofessional',
-      photo: '/src/assets/Paraprofessionals/Pinak_Goswami.jpg',
-      section: 'paraprofessionals',
-      background: 'Dedicated paraprofessional with expertise in supporting students with physical disabilities. Former healthcare aide who brings medical knowledge and patience to help students with mobility challenges participate fully in classroom activities.',
-      expertise: 'Physical disability support, mobility assistance, adaptive equipment, personal care, medical procedure assistance, and creating inclusive learning environments.'
-    },
-    {
-      name: 'Ms. Cielo Velez',
-      position: 'Paraprofessional',
-      photo: '/src/assets/Paraprofessionals/Cielo_Velez.jpg',
-      section: 'paraprofessionals',
-      background: 'Bilingual paraprofessional specializing in supporting English language learners in mainstream classrooms. Former community liaison who helps bridge communication between teachers, students, and families from diverse linguistic backgrounds.',
-      expertise: 'Bilingual education support, translation services, family communication, cultural mediation, language assessment support, and facilitating inclusive classroom participation.'
-    }
-  ],
   staff: [
     {
       name: 'Ms. Geetanjali Gunanathan',
@@ -360,6 +342,24 @@ export const allStaff: AllStaffData = {
       section: 'staff',
       background: 'Technology integration specialist who supports digital learning initiatives school-wide. Former IT consultant who trains teachers on educational technology tools and maintains the school\'s technological infrastructure for optimal learning.',
       expertise: 'Educational technology, computer systems maintenance, software training, digital learning platforms, hardware troubleshooting, and technology integration strategies.'
+    }
+  ],
+  paraprofessionals: [
+    {
+      name: 'Mr. Pinak Goswami',
+      position: 'Paraprofessional',
+      photo: '/src/assets/Paraprofessionals/Pinak_Goswami.jpg',
+      section: 'paraprofessionals',
+      background: 'Dedicated paraprofessional with expertise in supporting students with physical disabilities. Former healthcare aide who brings medical knowledge and patience to help students with mobility challenges participate fully in classroom activities.',
+      expertise: 'Physical disability support, mobility assistance, adaptive equipment, personal care, medical procedure assistance, and creating inclusive learning environments.'
+    },
+    {
+      name: 'Ms. Cielo Velez',
+      position: 'Paraprofessional',
+      photo: '/src/assets/Paraprofessionals/Cielo_Velez.jpg',
+      section: 'paraprofessionals',
+      background: 'Bilingual paraprofessional specializing in supporting English language learners in mainstream classrooms. Former community liaison who helps bridge communication between teachers, students, and families from diverse linguistic backgrounds.',
+      expertise: 'Bilingual education support, translation services, family communication, cultural mediation, language assessment support, and facilitating inclusive classroom participation.'
     }
   ],
   youthDevelopment: [
