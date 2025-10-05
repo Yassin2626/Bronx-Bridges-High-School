@@ -299,6 +299,7 @@ const ProspectiveStudents = () => {
                             className="text-black hover:text-yellow-600 underline font-medium transition-colors duration-300"
                           >
                             ZeregaFWC@schools.nyc.gov
+                          </a>
                         </div>
                       </div>
                     </div>
