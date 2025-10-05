@@ -26,13 +26,13 @@ const Footer = () => {
               <img 
                 src={districtLogo} 
                 alt="District Logo" 
-                className="w-16 h-16 object-contain"
+                className="w-20 h-20 object-contain"
               />
             </a>
           </div>
 
           {/* Right: Contact Blocks */}
-          <div className="flex items-start space-x-6">
+          <div className="flex flex-col lg:flex-row items-start gap-6">
             <div className="flex items-start space-x-4 p-4 bg-muted/10 rounded-lg hover:bg-muted/20 transition-colors duration-300">
               <MapPin className="w-6 h-6 mt-1 text-foreground flex-shrink-0" />
               <div>
