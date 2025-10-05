@@ -155,13 +155,6 @@ const Navigation = () => {
                 </div>
               ))}
             </div>
-
-            {/* Ctrl+K Search Indicator - Right side */}
-            <div className="hidden lg:flex items-center space-x-2 text-primary/70 hover:text-primary transition-colors cursor-pointer" onClick={() => window.location.href = '/staff-directory'}>
-              <kbd className="px-2 py-1 text-xs bg-primary/10 border border-primary/20 rounded">Ctrl</kbd>
-              <span className="text-sm">+</span>
-              <kbd className="px-2 py-1 text-xs bg-primary/10 border border-primary/20 rounded">K</kbd>
-            </div>
           </div>
         </div>
       )}
