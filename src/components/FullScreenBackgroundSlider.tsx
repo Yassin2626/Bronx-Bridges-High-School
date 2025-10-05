@@ -4,6 +4,7 @@ import advancedPlacement from '@/assets/advanced-placement.jpg';
 import collegeTrips from '@/assets/college-trips.jpg';
 import robotics from '@/assets/robotics.jpg';
 import engineering from '@/assets/engineering.jpg';
+import collegeFair from '@/assets/College_Fair.jpg';
 import staff from '@/assets/staff.jpg';
 import slideLeft from '@/assets/slide_left.png';
 import slideRight from '@/assets/slide_right.png';
@@ -20,6 +21,7 @@ const FullScreenBackgroundSlider = () => {
     { src: collegeTrips, alt: 'College Trips' },
     { src: robotics, alt: 'Robotics' },
     { src: engineering, alt: 'Engineering' },
+    { src: collegeFair, alt: 'College Fair' },
     { src: staff, alt: 'Staff' },
   ];
 
