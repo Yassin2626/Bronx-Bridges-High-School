@@ -165,22 +165,27 @@ const ProspectiveStudents = () => {
                             {index + 1}
                           </div>
                           <p className="text-gray-800 leading-relaxed">
-                            {step.includes('https://') ? (
-                              (() => {
-                                const urlMatch = step.match(/https:\/\/[^\s]+/);
-                                const url = urlMatch ? urlMatch[0] : step;
-                                const displayText = step.startsWith('Visit ') ? step.substring(6) : step;
-                                return (
-                                  <a
-                                    href={url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-black hover:text-yellow-600 underline font-medium transition-colors duration-300"
-                                  >
-                                    {displayText}
-                                  </a>
-                                );
-                              })()
+                            {step.startsWith('Visit ') ? (
+                              <>
+                                Visit{' '}
+                                <a
+                                  href={step.match(/https:\/\/[^\s]+/)?.[0] || step.substring(6)}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-black hover:text-yellow-600 underline font-medium transition-colors duration-300"
+                                >
+                                  {step.substring(6)}
+                                </a>
+                              </>
+                            ) : step.includes('https://') ? (
+                              <a
+                                href={step.match(/https:\/\/[^\s]+/)?.[0] || step}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-black hover:text-yellow-600 underline font-medium transition-colors duration-300"
+                              >
+                                {step}
+                              </a>
                             ) : (
                               step
                             )}
@@ -211,6 +216,8 @@ const ProspectiveStudents = () => {
                         <div className="space-y-2">
                           <a
                             href={`mailto:${counselor.email}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="block text-black hover:text-yellow-600 underline font-medium transition-colors duration-300"
                           >
                             {counselor.email}
