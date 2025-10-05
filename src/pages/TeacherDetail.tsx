@@ -117,15 +117,55 @@ const TeacherDetail = () => {
                   <div>
                     <h4 className="text-lg font-semibold text-gray-300 mb-3">Professional Background</h4>
                     <p className="text-gray-400 leading-relaxed">
-                      Dedicated educator committed to fostering academic excellence and personal growth in students.
-                      Experienced in curriculum development and innovative teaching methodologies.
+                      {teacher.position.toLowerCase().includes('principal')
+                        ? 'Educational leader dedicated to creating a positive and inclusive school environment. Experienced in curriculum oversight, staff development, and fostering strong community relationships.'
+                        : teacher.position.toLowerCase().includes('teacher')
+                        ? 'Passionate educator committed to fostering academic excellence and personal growth in students. Experienced in innovative teaching methodologies and curriculum development.'
+                        : teacher.position.toLowerCase().includes('counselor')
+                        ? 'Dedicated student advocate focused on providing comprehensive guidance and support services. Experienced in career counseling, academic planning, and emotional support.'
+                        : teacher.position.toLowerCase().includes('aide') || teacher.position.toLowerCase().includes('coordinator')
+                        ? 'Committed support professional ensuring smooth school operations and student success. Experienced in administrative coordination and community engagement.'
+                        : 'Dedicated education professional committed to supporting student success and school excellence. Experienced in collaborative environments and community partnerships.'
+                      }
                     </p>
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-gray-300 mb-3">Areas of Expertise</h4>
                     <p className="text-gray-400 leading-relaxed">
-                      Specialized in {teacher.position.toLowerCase()}. Passionate about creating engaging learning
-                      environments that support diverse learning needs and promote student success.
+                      {teacher.position.toLowerCase().includes('principal')
+                        ? 'School administration, educational leadership, curriculum development, staff supervision, community engagement, and strategic planning.'
+                        : teacher.position.toLowerCase().includes('assistant principal')
+                        ? 'Educational administration, student discipline, staff coordination, program implementation, and school safety protocols.'
+                        : teacher.position.toLowerCase().includes('math')
+                        ? 'Mathematics instruction, problem-solving strategies, STEM education, assessment design, and differentiated learning approaches.'
+                        : teacher.position.toLowerCase().includes('science')
+                        ? 'Scientific inquiry, laboratory instruction, research methodologies, environmental education, and hands-on learning experiences.'
+                        : teacher.position.toLowerCase().includes('ela') || teacher.position.toLowerCase().includes('english')
+                        ? 'Language arts instruction, literacy development, writing workshops, reading comprehension, and communication skills.'
+                        : teacher.position.toLowerCase().includes('social studies') || teacher.position.toLowerCase().includes('history')
+                        ? 'Historical analysis, civic education, cultural awareness, research skills, and global perspective development.'
+                        : teacher.position.toLowerCase().includes('special education')
+                        ? 'Individualized education plans, differentiated instruction, behavioral support, inclusive practices, and progress monitoring.'
+                        : teacher.position.toLowerCase().includes('spanish') || teacher.position.toLowerCase().includes('language')
+                        ? 'Language acquisition, cultural studies, conversational fluency, linguistic development, and cross-cultural communication.'
+                        : teacher.position.toLowerCase().includes('art')
+                        ? 'Visual arts instruction, creative expression, art history, portfolio development, and multimedia integration.'
+                        : teacher.position.toLowerCase().includes('physical education') || teacher.position.toLowerCase().includes('pe')
+                        ? 'Physical fitness, team sports, health education, motor skill development, and wellness promotion.'
+                        : teacher.position.toLowerCase().includes('music')
+                        ? 'Musical instruction, performance skills, music theory, ensemble direction, and creative expression through sound.'
+                        : teacher.position.toLowerCase().includes('counselor')
+                        ? 'Career guidance, academic planning, crisis intervention, group counseling, and postsecondary transition support.'
+                        : teacher.position.toLowerCase().includes('social worker')
+                        ? 'Mental health support, family services, crisis intervention, community resources, and trauma-informed care.'
+                        : teacher.position.toLowerCase().includes('aide')
+                        ? 'Administrative support, student assistance, record management, parent communication, and office coordination.'
+                        : teacher.position.toLowerCase().includes('coordinator')
+                        ? 'Program coordination, event planning, stakeholder communication, resource management, and community partnerships.'
+                        : teacher.position.toLowerCase().includes('secretary')
+                        ? 'Office management, communication systems, record keeping, scheduling coordination, and administrative support.'
+                        : `Specialized in ${teacher.position.toLowerCase()}. Passionate about creating engaging environments that support student growth and achievement.`
+                      }
                     </p>
                   </div>
                 </div>
