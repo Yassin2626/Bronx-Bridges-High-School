@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import graduates from '@/assets/graduates.png';
-import advancedPlacement from '@/assets/advanced-placement.jpg';
-import collegeTrips from '@/assets/college-trips.jpg';
-import robotics from '@/assets/robotics.jpg';
 import engineering from '@/assets/engineering.jpg';
 import collegeFair from '@/assets/College_Fair.jpg';
 import staff from '@/assets/staff.jpg';
@@ -17,9 +14,6 @@ const FullScreenBackgroundSlider = () => {
 
   const photos = [
     { src: graduates, alt: 'Graduates' },
-    { src: advancedPlacement, alt: 'Advanced Placement' },
-    { src: collegeTrips, alt: 'College Trips' },
-    { src: robotics, alt: 'Robotics' },
     { src: engineering, alt: 'Engineering' },
     { src: collegeFair, alt: 'College Fair' },
     { src: staff, alt: 'Staff' },

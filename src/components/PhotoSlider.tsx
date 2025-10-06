@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import graduatesImg from '@/assets/graduates.png';
-import advancedPlacementImg from '@/assets/advanced-placement.jpg';
-import collegeTripsImg from '@/assets/college-trips.jpg';
-import roboticsImg from '@/assets/robotics.jpg';
+import advancedPlacementImg from '@/assets/Advanced_Placement.jpg';
+import showImg from '@/assets/Show.jpg';
+import roboticsImg from '@/assets/Robotics.png';
+import graduationImg from '@/assets/Graduation.jpg';
+import graduation2025Img from '@/assets/Graduation_2025.jpg';
 import engineeringImg from '@/assets/engineering.jpg';
-import staffImg from '@/assets/staff.jpg';
 
 const PhotoSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,9 +16,11 @@ const PhotoSlider = () => {
   const photos = [
     { src: graduatesImg, alt: 'Graduates' },
     { src: advancedPlacementImg, alt: 'Advanced Placement' },
-    { src: roboticsImg, alt: 'Robotics Class' },
-    { src: engineeringImg, alt: 'Engineering Class' },
-    { src: staffImg, alt: 'Staff' },
+    { src: showImg, alt: 'Show' },
+    { src: roboticsImg, alt: 'Robotics' },
+    { src: graduationImg, alt: 'Graduation' },
+    { src: graduation2025Img, alt: 'Graduation 2025' },
+    { src: engineeringImg, alt: 'Engineering' },
   ];
 
   useEffect(() => {
