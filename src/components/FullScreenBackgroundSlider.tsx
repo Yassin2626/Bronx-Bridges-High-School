@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import graduates from '@/assets/graduates.png';
+import graduation from '@/assets/Graduation.jpg';
 import advancedPlacement from '@/assets/Advanced_Placement.jpg';
 import engineering from '@/assets/engineering.jpg';
 import collegeFair from '@/assets/College_Fair.jpg';
 import robotics from '@/assets/Robotics.png';
+import graduation2025 from '@/assets/Graduation_2025.jpg';
 import staff from '@/assets/staff.jpg';
 import slideLeft from '@/assets/slide_left.png';
 import slideRight from '@/assets/slide_right.png';
@@ -16,10 +18,11 @@ const FullScreenBackgroundSlider = () => {
 
   const photos = [
     { src: graduates, alt: 'Graduates' },
-    { src: advancedPlacement, alt: 'Advanced Placement' },
+    { src: graduation, alt: 'Graduation' },
     { src: collegeFair, alt: 'College Fair' },
     { src: robotics, alt: 'Robotics' },
     { src: engineering, alt: 'Engineering' },
+    { src: graduation2025, alt: 'Graduation 2025' },
     { src: staff, alt: 'Staff' },
   ];
 
