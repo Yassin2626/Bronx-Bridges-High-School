@@ -14,44 +14,43 @@ const QuickAccessResources = () => {
       icon: GraduationCap,
       title: 'Student Resources',
       description: 'Access academic tools and support.',
-      href: '#student-resources',
+      href: 'http://www.google.com/a/bronxbridges.org',
     },
     {
       icon: Users,
       title: 'Parent Portal',
       description: 'Connect with school updates and progress.',
-      href: '#parent-portal',
+      href: '/parent-coordinator',
     },
     {
       icon: User,
       title: 'Staff Directory',
       description: 'Find contact information for all staff.',
-      href: '#staff-directory',
+      href: '/staff-directory',
     },
     {
       icon: Calendar,
       title: 'School Calendar',
       description: 'Stay informed about important dates.',
-      href: '#school-calendar',
+      href: '/school-calendar',
     },
     {
       icon: Monitor,
       title: 'Remote Learning',
       description: 'Tools and guides for distance education.',
-      href: '#remote-learning',
+      href: '/remote-learning',
     },
     {
       icon: Bus,
       title: 'Transportation',
       description: 'Information on routes and schedules.',
-      href: '#transportation',
+      href: '/campus-map',
     },
   ];
 
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-6">
-        {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4">
             Quick Access Resources
@@ -75,6 +74,8 @@ const QuickAccessResources = () => {
               >
                 <a
                   href={resource.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block bg-gradient-to-br from-black via-gray-800 to-gray-700 backdrop-blur-md rounded-2xl p-8 border-4 border-black hover:border-gray-900 hover:shadow-2xl hover:shadow-black/50 transition-all duration-700 hover:scale-105"
                 >
                   <div className="flex items-start space-x-6">

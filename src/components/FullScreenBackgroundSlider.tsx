@@ -110,7 +110,7 @@ const FullScreenBackgroundSlider = () => {
         <div className={`text-white text-center transition-opacity duration-1000 ${
           isTransitioning ? 'opacity-0' : 'opacity-100'
         }`}>
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-yellow-400 drop-shadow-lg max-w-xs md:max-w-md lg:max-w-lg leading-tight font-serif">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white drop-shadow-lg max-w-xs md:max-w-md lg:max-w-lg leading-tight font-serif">
             {photoTexts[currentIndex]}
           </h2>
         </div>

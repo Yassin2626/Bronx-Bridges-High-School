@@ -1,10 +1,24 @@
 import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { MapPin, Phone, Mail } from 'lucide-react';
 import logo from '@/assets/footer-logo.png';
 import districtLogo from '@/assets/district_logo.png';
 import schoolNameLogo from '@/assets/school-name.png';
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleLogoClick = () => {
+    if (location.pathname === '/') {
+      // If already on home page, scroll to top
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    } else {
+      // If on another page, navigate to home
+      navigate('/');
+    }
+  };
+
   return (
     <footer className="bg-gradient-to-br from-background via-muted/10 to-background border-t border-border">
       {/* Top Row: Logos and Contact Info */}
@@ -12,16 +26,28 @@ const Footer = () => {
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-6">
           {/* Left: Logos and Address */}
           <div className="flex items-center space-x-6">
-            <img 
-              src={logo} 
-              alt="Bronx Bridges Footer Logo" 
-              className="w-16 h-16 object-contain"
-            />
-            <img 
-              src={schoolNameLogo} 
-              alt="Bronx Bridges High School" 
-              className="h-12 object-contain"
-            />
+            <button
+              onClick={handleLogoClick}
+              className="hover:scale-105 transition-transform duration-300 cursor-pointer"
+              aria-label="Go to homepage"
+            >
+              <img
+                src={logo}
+                alt="Bronx Bridges Footer Logo"
+                className="w-16 h-16 object-contain"
+              />
+            </button>
+            <button
+              onClick={handleLogoClick}
+              className="hover:scale-105 transition-transform duration-300 cursor-pointer"
+              aria-label="Go to homepage"
+            >
+              <img
+                src={schoolNameLogo}
+                alt="Bronx Bridges High School"
+                className="h-12 object-contain"
+              />
+            </button>
             <a href="https://www.schools.nyc.gov/" target="_blank" rel="noopener noreferrer">
               <img 
                 src={districtLogo} 
