@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import collegeFair from '@/assets/College_Fair.jpg';
-import engineering from '@/assets/Engineering.jpg';
-import robotics from '@/assets/Robotics.png';
-import prom from '@/assets/Prom.jpg';
-import show from '@/assets/Show.jpg';
-import graduation from '@/assets/Graduation_2025.jpg';
-import graduates from '@/assets/graduates.png';
-import staff from '@/assets/staff.jpg';
-import slideLeft from '@/assets/slide_left.png';
-import slideRight from '@/assets/slide_right.png';
+import collegeFair from '@/assets/Photo_Slider/College_Fair.jpg';
+import engineering from '@/assets/Photo_Slider/Engineering.jpg';
+import robotics from '@/assets/Photo_Slider/Robotics.png';
+import advancedPlacement from '@/assets/Photo_Slider/Advanced_Placement.jpg';
+import prom from '@/assets/Photo_Slider/Prom.jpg';
+import show from '@/assets/Photo_Slider/Show.jpg';
+import graduation from '@/assets/Photo_Slider/Graduation_2025.jpg';
+import graduates from '@/assets/Photo_Slider/graduates.png';
+import staff from '@/assets/Photo_Slider/staff.jpg';
+import slideLeft from '@/assets/Photo_Slider/slide_left.png';
+import slideRight from '@/assets/Photo_Slider/slide_right.png';
 
 const FullScreenBackgroundSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -20,6 +21,7 @@ const FullScreenBackgroundSlider = () => {
     { src: collegeFair, alt: 'College Fair' },
     { src: engineering, alt: 'Engineering' },
     { src: robotics, alt: 'Robotics' },
+    { src: advancedPlacement, alt: 'Advanced Placement' },
     { src: prom, alt: 'Prom' },
     { src: show, alt: 'Show' },
     { src: graduation, alt: 'Graduation' },
@@ -31,6 +33,7 @@ const FullScreenBackgroundSlider = () => {
     'College Fair',
     'Engineering Class',
     'Robotics Class',
+    'Advanced Placement',
     'Prom',
     'A Highlight From the Performance',
     '2025 Graduation',
@@ -107,7 +110,7 @@ const FullScreenBackgroundSlider = () => {
         <div className={`text-white text-center transition-opacity duration-1000 ${
           isTransitioning ? 'opacity-0' : 'opacity-100'
         }`}>
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold drop-shadow-lg max-w-xs md:max-w-md lg:max-w-lg leading-tight">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-yellow-400 drop-shadow-lg max-w-xs md:max-w-md lg:max-w-lg leading-tight font-serif">
             {photoTexts[currentIndex]}
           </h2>
         </div>

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import collegeFairImg from '@/assets/College_Fair.jpg';
-import engineeringImg from '@/assets/Engineering.jpg';
-import roboticsImg from '@/assets/Robotics.png';
-import promImg from '@/assets/Prom.jpg';
-import showImg from '@/assets/Show.jpg';
-import graduationImg from '@/assets/Graduation_2025.jpg';
-import graduatesImg from '@/assets/graduates.png';
-import staffImg from '@/assets/staff.jpg';
+import collegeFairImg from '@/assets/Photo_Slider/College_Fair.jpg';
+import engineeringImg from '@/assets/Photo_Slider/Engineering.jpg';
+import roboticsImg from '@/assets/Photo_Slider/Robotics.png';
+import promImg from '@/assets/Photo_Slider/Prom.jpg';
+import showImg from '@/assets/Photo_Slider/Show.jpg';
+import graduationImg from '@/assets/Photo_Slider/Graduation_2025.jpg';
+import graduatesImg from '@/assets/Photo_Slider/graduates.png';
+import staffImg from '@/assets/Photo_Slider/staff.jpg';
 
 const PhotoSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
