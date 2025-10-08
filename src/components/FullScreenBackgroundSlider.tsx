@@ -27,6 +27,17 @@ const FullScreenBackgroundSlider = () => {
     { src: staff, alt: 'Staff' },
   ];
 
+  const photoTexts = [
+    'College Fair',
+    'Engineering Class',
+    'Robotics Class',
+    'Prom',
+    'A Highlight From the Performance',
+    '2025 Graduation',
+    'The Graduates',
+    'The Staff'
+  ];
+
   // Auto-advance with white overlay
   useEffect(() => {
     if (!isPaused) {
@@ -91,8 +102,19 @@ const FullScreenBackgroundSlider = () => {
         }`}
       />
 
+      {/* Text Overlay */}
+      <div className="absolute bottom-24 left-0 right-0 flex items-center justify-center z-20 pointer-events-none">
+        <div className={`text-white text-center transition-opacity duration-1000 ${
+          isTransitioning ? 'opacity-0' : 'opacity-100'
+        }`}>
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold drop-shadow-lg max-w-xs md:max-w-md lg:max-w-lg leading-tight">
+            {photoTexts[currentIndex]}
+          </h2>
+        </div>
+      </div>
+
       {/* Navigation Arrows with Images - Always Visible */}
-      <div className="absolute bottom-16 left-0 right-0 flex items-center justify-between px-12 z-50">
+      <div className="absolute bottom-20 left-0 right-0 flex items-center justify-between px-12 z-50">
         <button
           onClick={goToPrev}
           aria-label="Previous photo"
