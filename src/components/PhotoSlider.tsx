@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import graduatesImg from '@/assets/graduates.png';
-import advancedPlacementImg from '@/assets/Advanced_Placement.jpg';
-import showImg from '@/assets/Show.jpg';
+import collegeFairImg from '@/assets/College_Fair.jpg';
+import engineeringImg from '@/assets/Engineering.jpg';
 import roboticsImg from '@/assets/Robotics.png';
-import graduationImg from '@/assets/Graduation.jpg';
-import graduation2025Img from '@/assets/Graduation_2025.jpg';
-import engineeringImg from '@/assets/engineering.jpg';
+import promImg from '@/assets/Prom.jpg';
+import showImg from '@/assets/Show.jpg';
+import graduationImg from '@/assets/Graduation_2025.jpg';
+import graduatesImg from '@/assets/graduates.png';
+import staffImg from '@/assets/staff.jpg';
 
 const PhotoSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -14,13 +15,14 @@ const PhotoSlider = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const photos = [
-    { src: graduatesImg, alt: 'Graduates' },
-    { src: advancedPlacementImg, alt: 'Advanced Placement' },
-    { src: showImg, alt: 'Show' },
-    { src: roboticsImg, alt: 'Robotics' },
-    { src: graduationImg, alt: 'Graduation' },
-    { src: graduation2025Img, alt: 'Graduation 2025' },
+    { src: collegeFairImg, alt: 'College Fair' },
     { src: engineeringImg, alt: 'Engineering' },
+    { src: roboticsImg, alt: 'Robotics' },
+    { src: promImg, alt: 'Prom' },
+    { src: showImg, alt: 'Show' },
+    { src: graduationImg, alt: 'Graduation' },
+    { src: graduatesImg, alt: 'Graduates' },
+    { src: staffImg, alt: 'Staff' },
   ];
 
   useEffect(() => {
