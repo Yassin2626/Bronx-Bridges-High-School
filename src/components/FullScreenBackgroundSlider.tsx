@@ -86,12 +86,12 @@ const FullScreenBackgroundSlider = () => {
             index === currentIndex ? 'opacity-100' : 'opacity-0'
           }`}
         >
+          <div className="absolute inset-0 bg-black" />
           <img
             src={photo.src}
             alt={photo.alt}
-            className="w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-contain"
           />
-          <div className="absolute inset-0 bg-black/30" />
         </div>
       ))}
 
